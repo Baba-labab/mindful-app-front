@@ -43,7 +43,7 @@ function App() {
           <Route path="/reflections" element={<AllReflections />}></Route>
           <Route path="/reflection/:id" element={<SingleReflection />}></Route>
           <Route path="/new-reflection/:id" element={<CreateReflection />}></Route>
-          <Route path="/edit-reflection/:id" element={<UpdateReflection />}></Route>
+          <Route path="/update-reflection/:id" element={<UpdateReflection />}></Route>
         </Route>
 
 
