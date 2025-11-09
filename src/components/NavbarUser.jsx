@@ -3,13 +3,13 @@ import { AuthContext } from '../context/auth.context'
 import { useContext } from 'react'
 
 function navbarUser() {
-const { LogOut } = useContext(AuthContext)
+const { logOut } = useContext(AuthContext)
 
   return (
     <div>
       <aside>
         <nav>
-          <NavLink to="user/:id">Dashboard</NavLink>
+          <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/exercises">Exercises</NavLink>
           <NavLink to="/favourites">Favourite Exercises</NavLink>
           <NavLink to="/reflections">Reflections</NavLink>
@@ -18,7 +18,7 @@ const { LogOut } = useContext(AuthContext)
           {/* <NavLink>Input</NavLink> */}
           <NavLink to="/contact">Contact</NavLink>
         </nav>
-        <button onClick={LogOut}>Logout</button>
+        <button onClick={()=>logOut()}>Logout</button>
       </aside>
 
 

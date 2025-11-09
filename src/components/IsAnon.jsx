@@ -10,8 +10,8 @@ function IsAnon() {
     if (isLoading) return <p>Loading...</p>
 
     if (isLoggedIn) {
-        //navigate to user dashboard & addreplace to remove previous page/login from browser history
-        return <Navigate to={`/user/${user._id}`} replace />
+        //navigate to user dashboard & add replace to remove previous page/login from browser history
+        return <Navigate to={`/dashboard`} replace />
     } else {
         return <Outlet />
     }

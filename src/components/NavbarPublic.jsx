@@ -4,11 +4,11 @@ function NavbarPublic() {
   return (
     <div>
       <nav>
-        <NavLink>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
         <NavLink>About</NavLink>
-        <NavLink>Log in</NavLink>
-        <NavLink>Sign up</NavLink>
-        <NavLink>Contact</NavLink>
+        <NavLink to="/login">Log in</NavLink>
+        <NavLink to="/signup">Sign up</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </nav>
 
       <main>

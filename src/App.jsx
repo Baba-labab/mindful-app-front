@@ -44,15 +44,16 @@ function App() {
         {/* private routes */}
         <Route element={<IsPrivate />}>
           <Route element={<NavbarUser />}>
-            <Route path="/user/:id" element={<Dashboard />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/exercises" element={<AllExercises />}></Route>
             <Route path="/exercise/:id" element={<SingleExercise />}></Route>
             <Route path="/favourites" element={<FavExercises />}></Route>
             <Route path="/reflections" element={<AllReflections />}></Route>
             <Route path="/reflection/:id" element={<SingleReflection />}></Route>
-            <Route path="/new-reflection/:id" element={<CreateReflection />}></Route>
+            <Route path="/new-reflection" element={<CreateReflection />}></Route>
             <Route path="/update-reflection/:id" element={<UpdateReflection />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
           </Route>
 
         </Route>
