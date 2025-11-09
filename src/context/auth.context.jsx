@@ -21,7 +21,7 @@ function AuthProviderWrapper(props) {
 
     const authenticateUser = () => {
 
-        const storedToken = localStorage.getItem(token);
+        const storedToken = localStorage.getItem("token");
 
         if (storeToken) {
             axios
@@ -55,7 +55,7 @@ function AuthProviderWrapper(props) {
     };
 
     const removeToken = () => {
-        localStorage.removeItem(token)
+        localStorage.removeItem("token")
     }; 
 
     const logOut = () => {

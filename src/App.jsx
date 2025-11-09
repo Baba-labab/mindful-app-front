@@ -15,6 +15,11 @@ import SingleReflection from './pages/SingleReflection'
 import CreateReflection from './pages/CreateReflection'
 import UpdateReflection from './pages/UpdateReflection'
 import FavExercises from './pages/FavExercises'
+import Profile from './pages/Profile'
+import NavbarPublic from './components/NavbarPublic'
+import NavbarUser from './components/NavbarUser'
+import IsAnon from './components/IsAnon'
+
 
 function App() {
 
@@ -23,11 +28,14 @@ function App() {
     <div>
       <Routes>
         {/* public routes */}
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
+        <Route element={<NavbarPublic />}>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Route>
+
 
         {/* anon routes */}
-        <Route element={<isAnon />}>
+        <Route element={<IsAnon />}>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
         </Route>
@@ -35,15 +43,18 @@ function App() {
 
         {/* private routes */}
         <Route element={<IsPrivate />}>
-          <Route path="/user/:id" element={<Dashboard />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/exercises" element={<AllExercises />}></Route>
-          <Route path="/exercise/:id" element={<SingleExercise />}></Route>
-          <Route path="/favourites" element={<FavExercises />}></Route>
-          <Route path="/reflections" element={<AllReflections />}></Route>
-          <Route path="/reflection/:id" element={<SingleReflection />}></Route>
-          <Route path="/new-reflection/:id" element={<CreateReflection />}></Route>
-          <Route path="/update-reflection/:id" element={<UpdateReflection />}></Route>
+          <Route element={<NavbarUser />}>
+            <Route path="/user/:id" element={<Dashboard />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/exercises" element={<AllExercises />}></Route>
+            <Route path="/exercise/:id" element={<SingleExercise />}></Route>
+            <Route path="/favourites" element={<FavExercises />}></Route>
+            <Route path="/reflections" element={<AllReflections />}></Route>
+            <Route path="/reflection/:id" element={<SingleReflection />}></Route>
+            <Route path="/new-reflection/:id" element={<CreateReflection />}></Route>
+            <Route path="/update-reflection/:id" element={<UpdateReflection />}></Route>
+          </Route>
+
         </Route>
 
 
