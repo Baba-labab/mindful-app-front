@@ -1,8 +1,22 @@
-import React from 'react'
+import { useContext } from 'react'
+import { AuthContext } from '../context/auth.context'
+import NavbarUser from '../components/NavbarUser'
+import NavbarPublic from '../components/NavbarPublic'
 
 function Contact() {
+  const { isLoggedIn } = useContext(AuthContext)
+
   return (
-    <div>Contact</div>
+    <>
+      {isLoggedIn ? <NavbarUser /> : <NavbarPublic />}
+      <main>
+        <p>You are welcome to contact us via</p>
+
+      </main>
+
+
+
+    </>
   )
 }
 

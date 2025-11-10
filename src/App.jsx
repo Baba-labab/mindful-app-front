@@ -30,9 +30,8 @@ function App() {
         {/* public routes */}
         <Route element={<NavbarPublic />}>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
         </Route>
-
+        <Route path="/contact" element={<Contact />}></Route>
 
         {/* anon routes */}
         <Route element={<IsAnon />}>
@@ -53,7 +52,6 @@ function App() {
             <Route path="/reflection/:id" element={<SingleReflection />}></Route>
             <Route path="/new-reflection" element={<CreateReflection />}></Route>
             <Route path="/update-reflection/:id" element={<UpdateReflection />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
           </Route>
 
         </Route>
