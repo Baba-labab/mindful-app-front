@@ -1,15 +1,15 @@
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 const API_URL = "http://localhost:5005"
 
 function LogIn(props) {
-const { storeToken, authenticateUser, user } = useContext(AuthContext)
+const { storeToken, authenticateUser } = useContext(AuthContext)
 
 const [ email, setEmail ] = useState("");
 const [ password, setPassword ] = useState("");
-const [ errorMessage, setErrorMessage ] = useState(undefined);
+const [ message, setMessage ] = useState(undefined);
 
 const navigate = useNavigate();
 
@@ -29,13 +29,15 @@ const handleLogin = async (e) => {
   }
   catch(error) {
     console.error("LoginError")
-  setErrorMessage("Error logging in")
+  setMessage(error.response?.data?.message || "Error logging in")
   }
 };
 
   return (
     <div>
-      <h1>Log In</h1>
+      {message && <p style={{ color: "red" }}>{message}</p>}
+      <main>
+        <h1>Log In</h1>
       <form onSubmit={handleLogin}>
         <label>Email</label>
           <input 
@@ -53,7 +55,11 @@ const handleLogin = async (e) => {
 
           <button type="submit">Log in</button>
       </form>
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      
+      <Link to="/">
+          <button>Home</button>
+        </Link>
+      </main>
     </div>
   )
 }
