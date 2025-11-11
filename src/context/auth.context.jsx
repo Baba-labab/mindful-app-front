@@ -75,6 +75,7 @@ function AuthProviderWrapper(props) {
                 storeToken,
                 authenticateUser,
                 logOut,
+                setIsLoading
             }}
         >
             {props.children}
