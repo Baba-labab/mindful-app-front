@@ -1,26 +1,44 @@
 import React from 'react'
 
 function CategoryCard() {
-    return (
-        <>
+    const categories = [
+        { name: "balance",
+            categoryImg: ""
+        },
+        { name: "energy",
+            categoryImg: ""
+        },
+        { name: "expression",
+            categoryImg:""
+         },
+        { name: "connection",
+            categoryImg:""
+         },
+        { name: "nourishment",
+            categoryImg:""
+         }];
 
-            <div className="card bg-base-100 image-full w-96 shadow-sm">
+return (
+    <>
+        {categories.map((cat) => { 
+           return <div key={cat.name} className="card bg-base-100 image-full w-96 shadow-sm">
                 <figure>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
+                        src={cat.categoryImg}
+                        alt={cat.name} />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">Card Title</h2>
-                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    <h2 className="card-title">{cat.name}</h2>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn btn-primary">Start</button>
                     </div>
                 </div>
             </div>
-            
-        </>
-    )
+
+        })
+        }
+    </>
+)
 }
 
 export default CategoryCard

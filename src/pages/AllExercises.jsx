@@ -2,13 +2,14 @@ import { useEffect, useContext, useState } from 'react'
 import axios from 'axios';
 import ExerciseCard from '../components/ExerciseCard'
 import { AuthContext } from '../context/auth.context';
+import CategoryCard from '../components/CategoryCard';
 
 const API_URL = "http://localhost:5005"
 
 function AllExercises() {
   const { setIsLoading } = useContext(AuthContext)
   const [message, setMessage] = useState("")
-  const [ exercises, setExercises ] = useState("")
+  const [ exercises, setExercises ] = useState([])
 
 
   const getExercises = async () => {
@@ -37,6 +38,8 @@ function AllExercises() {
     <>
 
       <h2>All Exercises</h2>
+
+       <CategoryCard />
 
       <ul className="list bg-base-100 rounded-box shadow-md">
 
