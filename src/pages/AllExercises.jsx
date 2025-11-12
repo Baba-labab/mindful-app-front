@@ -9,7 +9,7 @@ const API_URL = "http://localhost:5005"
 function AllExercises() {
   const { setIsLoading } = useContext(AuthContext)
   const [message, setMessage] = useState("")
-  const [ exercises, setExercises ] = useState([])
+  const [exercises, setExercises] = useState([])
 
 
   const getExercises = async () => {
@@ -39,13 +39,15 @@ function AllExercises() {
 
       <h2>All Exercises</h2>
 
-       <CategoryCard />
+      <CategoryCard />
+      <div className="flex justify-center">
+        <ul className="list bg-base-100 rounded-box shadow-md">
 
-      <ul className="list bg-base-100 rounded-box shadow-md">
+          {exercises && (exercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
 
-        {exercises && (exercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
+        </ul>
+      </div>
 
-      </ul>
 
     </>
   )
