@@ -5,60 +5,71 @@ import { useNavigate, Link } from 'react-router-dom'
 const API_URL = "http://localhost:5005"
 
 function LogIn(props) {
-const { storeToken, authenticateUser } = useContext(AuthContext)
+  const { storeToken, authenticateUser } = useContext(AuthContext)
 
-const [ email, setEmail ] = useState("");
-const [ password, setPassword ] = useState("");
-const [ message, setMessage ] = useState(undefined);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(undefined);
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const handleEmail = (e) => setEmail(e.target.value);
-const handlePassword = (e) => setPassword(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
 
-const handleLogin = async (e) => {
- e.preventDefault()
+  const handleLogin = async (e) => {
+    e.preventDefault()
 
-  try {
-    const res = await axios.post(`${API_URL}/auth/login`, {
-      email, password
-    })
-    storeToken(res.data.authToken);
-    await authenticateUser();
-    navigate("/dashboard");
-  }
-  catch(error) {
-    console.error("LoginError")
-  setMessage(error.response?.data?.message || "Error logging in")
-  }
-};
+    try {
+      const res = await axios.post(`${API_URL}/auth/login`, {
+        email, password
+      })
+      storeToken(res.data.authToken);
+      await authenticateUser();
+      navigate("/dashboard");
+    }
+    catch (error) {
+      console.error("LoginError")
+      setMessage(error.response?.data?.message || "Error logging in")
+    }
+  };
 
   return (
-    <div>
+    <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
       {message && <p style={{ color: "red" }}>{message}</p>}
-      <main>
-        <h1>Log In</h1>
-      <form onSubmit={handleLogin}>
-        <label>Email</label>
-          <input 
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmail} />
+      <main className="min-h-screen flex items-center justify-center px-4">
 
-       <label>Password</label>
-          <input 
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword} />
+        <form onSubmit={handleLogin}
+          className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-6 shadow-md">
+          <legend className="fieldset-legend text-xl font-semibold mb-4">
+            Log In
+          </legend>
+          <label className="label">
+            <span className='label-text'>Email</span></label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            className="input input-bordered w-full"
+            requireds />
 
-          <button type="submit">Log in</button>
-      </form>
-      
-      <Link to="/">
-          <button>Home</button>
-        </Link>
+          <label className='label mt-3'>
+            <span className="label-text">Password</span></label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            className="input input-bordered w-full" />
+
+          <button type="submit" className="btn btn-neutral mt-6 w-full" >Log in</button>
+          <Link to="/" className="btn btn-outline mt-3 w-full">
+            <button>Home</button>
+          </Link>
+
+        </form>
+
+
       </main>
     </div>
   )
