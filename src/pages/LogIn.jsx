@@ -35,7 +35,13 @@ function LogIn(props) {
 
   return (
     <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
-      {message && <p style={{ color: "red" }}>{message}</p>}
+      
+      {message && (
+        <div role="alert" className="alert alert-warning alert-outline m-4">
+          <span>{message}</span>
+        </div>
+      )}
+
       <main className="min-h-screen flex items-center justify-center px-4">
 
         <form onSubmit={handleLogin}
@@ -51,7 +57,7 @@ function LogIn(props) {
             value={email}
             onChange={handleEmail}
             className="input input-bordered w-full"
-            requireds />
+            required />
 
           <label className='label mt-3'>
             <span className="label-text">Password</span></label>
@@ -60,12 +66,15 @@ function LogIn(props) {
             name="password"
             value={password}
             onChange={handlePassword}
-            className="input input-bordered w-full" />
+            className="input input-bordered w-full"
+            required />
 
           <button type="submit" className="btn btn-neutral mt-6 w-full" >Log in</button>
           <Link to="/" className="btn btn-outline mt-3 w-full">
             <button>Home</button>
           </Link>
+
+          <p>You don't have an account yet? Sign up {" "}<Link to="/signup" className="font-bold">here</Link></p>
 
         </form>
 

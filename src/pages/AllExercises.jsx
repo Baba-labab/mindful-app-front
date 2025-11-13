@@ -44,11 +44,11 @@ function AllExercises() {
 
       <CategoryCard />
       <div className="flex justify-center">
-        <ul className="list bg-base-100 rounded-box shadow-md">
+        <div className="list bg-base-100 rounded-box shadow-md">
 
           {exercises && (exercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
 
-        </ul>
+        </div>
       </div>
 
 

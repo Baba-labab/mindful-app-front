@@ -48,49 +48,68 @@ function SignUp() {
 
   return (
     <>
-      {message && (
-        <div role="alert" className="alert alert-warning alert-outline m-4">
-          <span>{message}</span>
-        </div>
-      )}
-      <main className="Signup">
-        <h2>Sign Up</h2>
-        <form onSubmit={handleSignUp}>
-          <label htmlFor='name'>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Enter your name"
-            onChange={handleName} />
+    <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
+        {message && (
+          <div role="alert" className="alert alert-warning alert-outline m-4">
+            <span>{message}</span>
+          </div>
+        )}
 
-          <label htmlFor='email'>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={handleEmail} />
+        <main className="min-h-screen flex items-center justify-center px-4">
 
-          <label htmlFor='password'>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Enter a password"
-            onChange={handlePassword} />
+          <form onSubmit={handleSignUp}
+            className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-6 shadow-md">
+            <legend className="fieldset-legend text-xl font-semibold mb-4">
+              Sign up
+            </legend>
 
-          <button type="submit">Sign up</button>
+<label className="label">
+              <span className='label-text'>Name</span></label>
+            <input
+              type="name"
+              name="text"
+              value={name}
+              placeholder="Enter a username"
+              onChange={handleName}
+              className="input input-bordered w-full"
+              required />
 
-        </form>
-        <p>If your already have an account, you can login{" "}<Link to="/login">here</Link></p>
+            <label className="label">
+              <span className='label-text'>Email</span></label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Enter your emailadress"
+              onChange={handleEmail}
+              className="input input-bordered w-full"
+              required />
 
-        <Link to="/">
-          <button>Home</button>
-        </Link>
+            <label className='label mt-3'>
+              <span className="label-text">Password</span></label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Enter a secure password"
+              onChange={handlePassword}
+              className="input input-bordered w-full"
+              required />
+
+            <button type="submit" className="btn btn-neutral mt-6 w-full" >Sign up</button>
+            <Link to="/" className="btn btn-outline mt-3 w-full">
+              <button>Home</button>
+            </Link>
+
+            <p>If your already have an account, you can login{" "}<Link to="/login" className='font-bold'>here</Link></p>
+
+          </form>
 
 
-      </main>
+        </main>
+
+    </div>
+      
     </>
 
   )
