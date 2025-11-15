@@ -10,6 +10,16 @@ function AllExercises() {
   const { setIsLoading } = useContext(AuthContext)
   const [message, setMessage] = useState("")
   const [exercises, setExercises] = useState([])
+  const [filteredExercises, setFilteredExercises] = useState([])
+  const [isActive, setIsActive] = useState(null)
+
+  const allCategories = [
+    { name: "balance", categoryImg: "images/equality.png" },
+    { name: "energy", categoryImg: "images/functional.png" },
+    { name: "expression", categoryImg: "images/magic.png" },
+    { name: "connection", categoryImg: "images/network-user.png" },
+    { name: "nourishment", categoryImg: "images/gymnast-diet.png" },
+    { name: "rest", categoryImg: "images/sleep.png" }];
 
 
   const getExercises = async () => {
@@ -19,6 +29,7 @@ function AllExercises() {
       const res = await axios.get(`${API_URL}/exercises/`)
       const foundExercises = res.data;
       setExercises(foundExercises)
+      setFilteredExercises(foundExercises)
 
     }
     catch (error) {
@@ -34,19 +45,47 @@ function AllExercises() {
 
   }, []);
 
+  const filterExercises = (activeFilter) => {
+    setIsActive(activeFilter)
+    const newArray = exercises.filter(exercise => exercise.category === activeFilter);
+    setFilteredExercises(newArray);
+    }
+  
+
+  const resetExercises = () => {
+    setIsActive(null);
+    setFilteredExercises(exercises);
+  }
+
+
   return (
     <>
+      {/* <button onClick={() => filterExercises('energy')}>Filter by Energy</button> */}
       <div className="flex flex-col justify-center items-center">
         <h2 className="text-4xl text-center mt-5">How do you want to spent your break?</h2>
         <span className='justify-center mt-2'>This is an overview of all available exercises. You can filter them by category</span>
       </div>
 
+      <div className='flex justify-center mb-10 mt-10'>
+        <div className='grid grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-4'>
+          {allCategories.map((cat => 
+          <CategoryCard 
+          key={cat.name} 
+          cat={cat} 
+          filterExercises={filterExercises} />
+          ))}
 
-      <CategoryCard />
+          <button className="btn flex justify-center items-center"
+            type="reset"
+            value="Reset"
+            onClick={resetExercises}>Reset</button>
+        </div>
+      </div>
+
       <div className="flex justify-center">
         <div className="list bg-base-100 rounded-box shadow-md">
 
-          {exercises && (exercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
+          {filteredExercises && (filteredExercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
 
         </div>
       </div>

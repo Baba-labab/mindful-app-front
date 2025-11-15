@@ -20,7 +20,7 @@ function AuthProviderWrapper(props) {
     const authenticateUser = () => {
 
         const storedToken = localStorage.getItem("token");
-        console.log("Stored Token:", storedToken)
+        // console.log("Stored Token:", storedToken)
         if (storedToken) {
             axios
                 .get(`${API_URL}/auth/verify`, {
@@ -30,7 +30,7 @@ function AuthProviderWrapper(props) {
                 .then((response) => {
                     //if user is verified
                     const user = response.data;
-                    console.log(user)
+                    // console.log(user)
 
                     setIsLoggedIn(true);
                     setIsLoading(false);
