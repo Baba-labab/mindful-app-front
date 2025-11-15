@@ -49,8 +49,8 @@ function AllExercises() {
     setIsActive(activeFilter)
     const newArray = exercises.filter(exercise => exercise.category === activeFilter);
     setFilteredExercises(newArray);
-    }
-  
+  }
+
 
   const resetExercises = () => {
     setIsActive(null);
@@ -59,27 +59,30 @@ function AllExercises() {
 
 
   return (
-    <>
+    <div className="px-4">
       {/* <button onClick={() => filterExercises('energy')}>Filter by Energy</button> */}
       <div className="flex flex-col justify-center items-center">
         <h2 className="text-4xl text-center mt-5">How do you want to spent your break?</h2>
         <span className='justify-center mt-2'>This is an overview of all available exercises. You can filter them by category</span>
       </div>
-
+      
       <div className='flex justify-center mb-10 mt-10'>
-        <div className='grid grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-4'>
-          {allCategories.map((cat => 
-          <CategoryCard 
-          key={cat.name} 
-          cat={cat} 
-          filterExercises={filterExercises} />
-          ))}
+        <div className='grid grid-cols-3 md:grid-cols-6 gap-4'>
 
-          <button className="btn flex justify-center items-center"
-            type="reset"
-            value="Reset"
-            onClick={resetExercises}>Reset</button>
+          {allCategories.map((cat =>
+            <CategoryCard
+              key={cat.name}
+              cat={cat}
+              filterExercises={filterExercises}
+              isActive={isActive === cat.name} />
+          ))}
         </div>
+      </div>
+
+      <div className="flex justify-center mb-4">
+        <button
+          className="btn btn-outline"
+          onClick={resetExercises}>all exercises</button>
       </div>
 
       <div className="flex justify-center">
@@ -91,7 +94,7 @@ function AllExercises() {
       </div>
 
 
-    </>
+    </div>
   )
 }
 
