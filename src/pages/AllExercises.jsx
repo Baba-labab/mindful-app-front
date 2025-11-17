@@ -7,7 +7,7 @@ import CategoryCard from '../components/CategoryCard';
 const API_URL = "http://localhost:5005"
 
 function AllExercises() {
-  const { setIsLoading } = useContext(AuthContext)
+  const [isLoading, setIsLoading ] = useState(true)
   const [message, setMessage] = useState("")
   const [exercises, setExercises] = useState([])
   const [filteredExercises, setFilteredExercises] = useState([])
@@ -60,7 +60,12 @@ function AllExercises() {
 
   return (
     <div className="px-4">
-      {/* <button onClick={() => filterExercises('energy')}>Filter by Energy</button> */}
+      {isLoading ? (
+      <div className="flex justify-center mt-10">
+        <span className="loading loading-ring loading-lg"></span>
+      </div>
+    ) : (
+      <>
       <div className="flex flex-col justify-center items-center">
         <h2 className="text-4xl text-center mt-5">How do you want to spent your break?</h2>
         <span className='justify-center mt-2'>This is an overview of all available exercises. You can filter them by category</span>
@@ -92,8 +97,8 @@ function AllExercises() {
 
         </div>
       </div>
-
-
+      </>
+    )}
     </div>
   )
 }

@@ -1,8 +1,75 @@
-import React from 'react'
+import { useEffect, useContext, useState } from 'react'
+import axios from 'axios';
+import { AuthContext } from '../context/auth.context';
+import ReflectionCard from '../components/ReflectionCard';
+
+const API_URL = "http://localhost:5005"
 
 function AllReflections() {
+  const [isLoading, setIsLoading] = useState(true)
+  const [message, setMessage] = useState("")
+  const [reflections, setReflections] = useState([])
+  //const [filteredReflections, setFilteredReflections] = useState([])
+  //const [isActive, setIsActive] = useState(null)
+
+
+  const getReflections = async () => {
+
+    try {
+      setIsLoading(true)
+      const res = await axios.get(`${API_URL}/reflections/`)
+      const foundReflections = res.data;
+      setReflections(foundReflections)
+      //setFilteredExercises(foundReflections)
+
+    }
+    catch (error) {
+      setMessage(error.response?.data?.message)
+    }
+    finally {
+      setIsLoading(false)
+    }
+  }
+  useEffect(() => {
+
+    getReflections();
+
+  }, []);
+
+  /* const filterExercises = (activeFilter) => {
+    setIsActive(activeFilter)
+    const newArray = exercises.filter(exercise => exercise.category === activeFilter);
+    setFilteredExercises(newArray);
+  }
+
+
+  const resetExercises = () => {
+    setIsActive(null);
+    setFilteredExercises(exercises);
+  } */
+
+
   return (
-    <div>AllReflections</div>
+    <div className="px-4">
+      {isLoading ? (<div className="flex justify-center mt-10">
+        <span className="loading loading-ring loading-lg"></span>
+      </div>) : (
+        <>
+          <div className="flex flex-col justify-center items-center">
+            <h2 className="text-4xl text-center mt-5">My Reflections</h2>
+            <span className='justify-center mt-2'>This is an overview of all your reflections</span>
+          </div>
+
+          <div className='flex justify-center mb-10 mt-10'>
+            <div className='list bg-base-100 rounded-box shadow-md'>
+
+              {reflections && (reflections.map((ref) => <ReflectionCard key={ref._id} ref={ref} />))}
+            </div>
+          </div>
+        </>
+      )}
+
+    </div>
   )
 }
 

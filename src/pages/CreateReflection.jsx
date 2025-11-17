@@ -50,7 +50,7 @@ function CreateReflection() {
       date,
       title,
       text,
-      relatedExercise: [selectedExerciseId],
+      relatedExercise: selectedExerciseId,
       mood,
     };
 
@@ -83,8 +83,8 @@ function CreateReflection() {
 
 
   return (
-    <div>
-      <h2>Start writing a new reflection</h2>
+    <div className="px-4">
+      <h2 className="text-4xl text-center mt-5">Start writing a new reflection</h2>
 
       <p>Instructions and input</p>
 

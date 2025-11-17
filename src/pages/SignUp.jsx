@@ -48,7 +48,7 @@ function SignUp() {
 
   return (
     <>
-    <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
+      <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
         {message && (
           <div role="alert" className="alert alert-warning alert-outline m-4">
             <span>{message}</span>
@@ -63,10 +63,11 @@ function SignUp() {
               Sign up
             </legend>
 
-<label className="label">
+            <label className="label">
               <span className='label-text'>Name</span></label>
             <input
               type="name"
+              id="name"
               name="text"
               value={name}
               placeholder="Enter a username"
@@ -78,6 +79,7 @@ function SignUp() {
               <span className='label-text'>Email</span></label>
             <input
               type="email"
+              id="email"
               name="email"
               value={email}
               placeholder="Enter your emailadress"
@@ -89,6 +91,7 @@ function SignUp() {
               <span className="label-text">Password</span></label>
             <input
               type="password"
+              id="password"
               name="password"
               value={password}
               placeholder="Enter a secure password"
@@ -108,8 +111,8 @@ function SignUp() {
 
         </main>
 
-    </div>
-      
+      </div>
+
     </>
 
   )

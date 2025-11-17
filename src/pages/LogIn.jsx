@@ -53,6 +53,7 @@ function LogIn(props) {
             <span className='label-text'>Email</span></label>
           <input
             type="email"
+            id="email"
             name="email"
             value={email}
             onChange={handleEmail}
@@ -63,6 +64,7 @@ function LogIn(props) {
             <span className="label-text">Password</span></label>
           <input
             type="password"
+            id="password"
             name="password"
             value={password}
             onChange={handlePassword}
