@@ -62,8 +62,6 @@ function CreateReflection() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
-      authenticateUser();
-
       setMessage("You have successfully created a new reflection!")
       setTimeout(() => {
         navigate("/reflections")
@@ -109,7 +107,7 @@ function CreateReflection() {
             <option value="" disabled>Pick a mood</option>
             <option value="calm">calm</option>
             <option value="tired">tired</option>
-            <option value="energized">energizes</option>
+            <option value="energized">energized</option>
             <option value="stressed">stressed</option>
             <option value="content">content</option>
             <option value="sad">sad</option>

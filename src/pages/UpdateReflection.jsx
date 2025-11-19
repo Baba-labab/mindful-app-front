@@ -98,8 +98,6 @@ function UpdateReflection() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
-      authenticateUser();
-
       setMessage("You have successfully edited your reflection!")
       setTimeout(() => {
         navigate("/reflections")
