@@ -6,7 +6,7 @@ import { AuthContext } from '../context/auth.context'
 const API_URL = "http://localhost:5005"
 
 function CreateReflection() {
-  const { authenticateUser } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   const [mood, setMood] = useState("");
   const [date, setDate] = useState("");
@@ -50,6 +50,7 @@ function CreateReflection() {
       date,
       title,
       text,
+      user: user._id,
       relatedExercise: selectedExerciseId,
       mood,
     };
@@ -61,6 +62,13 @@ function CreateReflection() {
       const response = await axios.post(`${API_URL}/reflections`, newReflection,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
+
+      console.log(response)
+
+      // await axios.put(`${API_URL}/users/${user._id}`,
+      //           { reflections: newReflection._id },
+      //           { headers: { Authorization: `Bearer ${storedToken}` } }
+      //       )
 
       setMessage("You have successfully created a new reflection!")
       setTimeout(() => {

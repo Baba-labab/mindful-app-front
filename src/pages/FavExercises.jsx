@@ -7,7 +7,7 @@ const API_URL = "http://localhost:5005";
 
 
 function FavExercises() {
-  const { user, authenticateUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [exercises, setExercises] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -23,9 +23,7 @@ function FavExercises() {
       );
 
       const userData = res.data;
-
       const userFavourites = userData.favExercises;
-
       setExercises(userFavourites);
     }
     catch (error) {
@@ -39,7 +37,6 @@ function FavExercises() {
     if (user) {
       getFavExercises();
     }
-
 
   }, [user]);
 
@@ -55,6 +52,7 @@ function FavExercises() {
 
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-4xl text-center mt-5">My Favourite Exercises</h2>
+
           <main>
             <div className="flex justify-center">
               <div className="list bg-base-100 rounded-box shadow-md">
@@ -63,6 +61,7 @@ function FavExercises() {
 
               </div>
             </div>
+
           </main>
         </div>
       )}

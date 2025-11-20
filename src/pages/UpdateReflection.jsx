@@ -6,7 +6,7 @@ import { AuthContext } from '../context/auth.context'
 const API_URL = "http://localhost:5005"
 
 function UpdateReflection() {
-  const { authenticateUser } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const { id } = useParams()
 
   const [reflection, setReflection] = useState("");
@@ -16,7 +16,7 @@ function UpdateReflection() {
   const [title, setTitle] = useState("");
   const [selectedExerciseId, setSelectedExerciseId] = useState("");
   const [message, setMessage] = useState("");
-  const[isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [exercises, setExercises] = useState([]);
   const navigate = useNavigate();
 
@@ -68,7 +68,7 @@ function UpdateReflection() {
       await getData();
       setIsLoading(false);
     }
-    
+
     fetchData();
   }, []);
 
@@ -90,13 +90,16 @@ function UpdateReflection() {
       mood,
     };
 
-
-
     try {
       const storedToken = localStorage.getItem("token");
       const response = await axios.put(`${API_URL}/reflections/${id}`, editedReflection,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
+
+      await axios.put(`${API_URL}/users/${user._id}`,
+        { reflections: editedReflection._id },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
 
       setMessage("You have successfully edited your reflection!")
       setTimeout(() => {
@@ -183,6 +186,7 @@ function UpdateReflection() {
 
       </main>
 
+      <button className="btn btn-neutral mt-5 mb-5">Delete</button>
 
       <NavLink to="/dashboard">
         <button className="btn btn-neutral mt-5 mb-5">Dashboard</button>

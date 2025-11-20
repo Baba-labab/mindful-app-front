@@ -6,22 +6,20 @@ import ReflectionCard from '../components/ReflectionCard';
 const API_URL = "http://localhost:5005"
 
 function AllReflections() {
+  const {user} = useContext(AuthContext)
   const [isLoading, setIsLoading] = useState(true)
   const [message, setMessage] = useState("")
   const [reflections, setReflections] = useState([])
-  //const [filteredReflections, setFilteredReflections] = useState([])
-  //const [isActive, setIsActive] = useState(null)
-
+  
 
   const getReflections = async () => {
 
     try {
       setIsLoading(true)
-      const res = await axios.get(`${API_URL}/reflections/`)
+      const res = await axios.get(`${API_URL}/reflections/user/${user._id}`)
       const foundReflections = res.data;
       setReflections(foundReflections)
-      //setFilteredExercises(foundReflections)
-
+      
     }
     catch (error) {
       setMessage(error.response?.data?.message)
@@ -35,18 +33,6 @@ function AllReflections() {
     getReflections();
 
   }, []);
-
-  /* const filterExercises = (activeFilter) => {
-    setIsActive(activeFilter)
-    const newArray = exercises.filter(exercise => exercise.category === activeFilter);
-    setFilteredExercises(newArray);
-  }
-
-
-  const resetExercises = () => {
-    setIsActive(null);
-    setFilteredExercises(exercises);
-  } */
 
 
   return (

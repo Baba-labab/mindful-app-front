@@ -7,6 +7,7 @@ import CategoryCard from '../components/CategoryCard';
 const API_URL = "http://localhost:5005"
 
 function AllExercises() {
+  const {user} = useContext(AuthContext)
   const [isLoading, setIsLoading ] = useState(true)
   const [message, setMessage] = useState("")
   const [exercises, setExercises] = useState([])
