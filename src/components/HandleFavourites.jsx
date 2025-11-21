@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import { AuthContext } from '../context/auth.context';
 import axios from 'axios'
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function HandleFavourites({ exerciseId }) {
 

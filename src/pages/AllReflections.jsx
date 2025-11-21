@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 import ReflectionCard from '../components/ReflectionCard';
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function AllReflections() {
   const {user} = useContext(AuthContext)

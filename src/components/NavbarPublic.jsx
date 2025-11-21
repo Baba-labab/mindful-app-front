@@ -1,9 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom"
-import { useContext } from "react"
-import { AuthContext } from "../context/auth.context"
 
 function NavbarPublic() {
-  const { logout } = useContext(AuthContext)
+  
   return (
     <div>
 

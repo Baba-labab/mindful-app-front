@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function SingleReflection() {
   const [reflection, setReflection] = useState({})

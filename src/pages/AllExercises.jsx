@@ -4,7 +4,7 @@ import ExerciseCard from '../components/ExerciseCard'
 import { AuthContext } from '../context/auth.context';
 import CategoryCard from '../components/CategoryCard';
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function AllExercises() {
   const {user} = useContext(AuthContext)

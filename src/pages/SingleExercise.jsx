@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import HandleFavourites from '../components/HandleFavourites'
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function SingleExercise() {
   const [exercise, setExercise] = useState({})
