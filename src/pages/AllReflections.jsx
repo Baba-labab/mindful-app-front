@@ -36,12 +36,12 @@ function AllReflections() {
 
 
   return (
-    <div className="px-4">
+    <div className="px-4 bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
       {isLoading ? (<div className="flex justify-center mt-10">
         <span className="loading loading-ring loading-lg"></span>
       </div>) : (
         <>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center ">
             <h2 className="text-4xl text-center mt-5">My Reflections</h2>
             <span className='justify-center mt-2'>This is an overview of all your reflections</span>
           </div>

@@ -87,7 +87,7 @@ function AllExercises() {
 
       <div className="flex justify-center mb-4">
         <button
-          className="btn btn-outline"
+          className="btn btn-secondary"
           onClick={resetExercises}>all exercises</button>
       </div>
 

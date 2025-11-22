@@ -54,7 +54,7 @@ function SingleExercise() {
         <p>{exercise.description}</p>
 
         <NavLink to="/exercises">
-          <button className="btn btn-rounded btn-outline">back to all exercises</button>
+          <button className="btn btn-secondary">back to all exercises</button>
         </NavLink>
 
 

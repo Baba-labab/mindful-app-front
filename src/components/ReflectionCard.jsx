@@ -21,7 +21,7 @@ function ReflectionCard({ ref }) {
 
         <div className="card-actions justify-end">
           <NavLink to={`/reflection/${ref._id}`}>
-            <button className="btn btn-square">Read</button>
+            <button className="btn btn-square btn-base">Read</button>
           </NavLink>
         </div>
 

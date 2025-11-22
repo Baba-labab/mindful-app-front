@@ -71,7 +71,7 @@ function LogIn(props) {
             className="input input-bordered w-full"
             required />
 
-          <button type="submit" className="btn btn-neutral mt-6 w-full" >Log in</button>
+          <button type="submit" className="btn btn-secondary mt-6 w-full" >Log in</button>
           <Link to="/" className="btn btn-outline mt-3 w-full">
             <button>Home</button>
           </Link>
