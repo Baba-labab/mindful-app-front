@@ -61,7 +61,7 @@ function AllExercises() {
 
 
   return (
-    <div className="px-4">
+    <div className="px-4 min-h-screen bg-[url(/images/to-go-biking.jpg)] bg-cover bg-no-repeat bg-center">
       {isLoading ? (
         <div className="flex justify-center mt-10">
           <span className="loading loading-ring loading-lg"></span>
@@ -97,7 +97,7 @@ function AllExercises() {
           </div>
 
           <div className="flex justify-center">
-            <div className="list bg-base-100 rounded-box shadow-md">
+            <div className="list bg-base-100 rounded-box shadow-md mb-10">
 
               {filteredExercises && (filteredExercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
 

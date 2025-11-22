@@ -15,8 +15,8 @@ function Dashboard() {
         <div className="hero-overlay"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
-            <h1 className="mb-5 text-2xl font-bold">Welcome {user.name} to your dashboard!</h1>
-            <p className="mb-5 mt-5">
+            <h1 className="mb-5 text-4xl md:text-6xl font-bold">Welcome {user.name} to your mindful break!</h1>
+            <p className="mb-5 mt-5 text-lg">
               What do you want to do now?
             </p>
             <div className="grid grid-cols-1">
