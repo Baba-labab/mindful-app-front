@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 function Dashboard() {
   return (
     <div className="px-4">
-      <div className="hero min-h-screen"
+      <div className="hero max-h-screen"
         style={{
           backgroundImage:
             "url(/images/shellfish.jpg)",
@@ -12,7 +12,8 @@ function Dashboard() {
         <div className="hero-overlay"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Breathe</h1>
+            <h1 className="mb-5 text-5xl font-bold">Welcome on your dashboard!</h1>
+            <span>breathe in .... breathe out .... and then:</span>
             <NavLink to="/exercises">
               <button className="btn btn-neutral mt-5">Start your break</button>
             </NavLink>
