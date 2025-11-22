@@ -3,12 +3,13 @@ import axios from 'axios';
 import ExerciseCard from '../components/ExerciseCard'
 import { AuthContext } from '../context/auth.context';
 import CategoryCard from '../components/CategoryCard';
+import { NavLink } from 'react-router-dom';
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function AllExercises() {
-  const {user} = useContext(AuthContext)
-  const [isLoading, setIsLoading ] = useState(true)
+  const { user } = useContext(AuthContext)
+  const [isLoading, setIsLoading] = useState(true)
   const [message, setMessage] = useState("")
   const [exercises, setExercises] = useState([])
   const [filteredExercises, setFilteredExercises] = useState([])
@@ -62,44 +63,48 @@ function AllExercises() {
   return (
     <div className="px-4">
       {isLoading ? (
-      <div className="flex justify-center mt-10">
-        <span className="loading loading-ring loading-lg"></span>
-      </div>
-    ) : (
-      <>
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="text-4xl text-center mt-5">How do you want to spent your break?</h2>
-        <span className='justify-center mt-2'>This is an overview of all available exercises. You can filter them by category</span>
-      </div>
-      
-      <div className='flex justify-center mb-10 mt-10'>
-        <div className='grid grid-cols-3 md:grid-cols-6 gap-4'>
-
-          {allCategories.map((cat =>
-            <CategoryCard
-              key={cat.name}
-              cat={cat}
-              filterExercises={filterExercises}
-              isActive={isActive === cat.name} />
-          ))}
+        <div className="flex justify-center mt-10">
+          <span className="loading loading-ring loading-lg"></span>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="flex flex-col justify-center items-center">
+            <h2 className="text-xl md:text-4xl text-center mt-5">How do you want to spent your break?</h2>
+            <span className='text-sm md:text-lg text-center justify-center mt-2'>This is an overview of all available exercises. You can filter them by category</span>
+          </div>
 
-      <div className="flex justify-center mb-4">
-        <button
-          className="btn btn-secondary"
-          onClick={resetExercises}>all exercises</button>
-      </div>
+          <div className='flex justify-center mb-10 mt-10'>
+            <div className='grid grid-cols-3 md:grid-cols-6 gap-4'>
 
-      <div className="flex justify-center">
-        <div className="list bg-base-100 rounded-box shadow-md">
+              {allCategories.map((cat =>
+                <CategoryCard
+                  key={cat.name}
+                  cat={cat}
+                  filterExercises={filterExercises}
+                  isActive={isActive === cat.name} />
+              ))}
+            </div>
+          </div>
 
-          {filteredExercises && (filteredExercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
+          <div className="flex justify-center mb-4 gap-4">
+            <button
+              className="btn btn-secondary btn-sm md:btn-md"
+              onClick={resetExercises}>All exercises</button>
+            <NavLink to="/favourites">
+              <button className="btn btn-secondary btn-sm md:btn-md">Favourite exercises</button>
+            </NavLink>
 
-        </div>
-      </div>
-      </>
-    )}
+          </div>
+
+          <div className="flex justify-center">
+            <div className="list bg-base-100 rounded-box shadow-md">
+
+              {filteredExercises && (filteredExercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
+
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

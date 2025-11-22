@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 function ErrorPage() {
   return (
     <div className="px-4">
-      <div className="hero max-h-screen"
+      <div className="hero min-h-screen"
         style={{
           backgroundImage:
             "url(/images/shellfish.jpg)",
@@ -17,8 +17,10 @@ function ErrorPage() {
             <p className="mb-5 mt-5">
              This means your page cannot be found. Breath in and breath out and hit the home button!
             </p>
-            <NavLink to="/"></NavLink>
+            <NavLink to="/">
             <button className="btn btn-primary mt-5">Home</button>
+            </NavLink>
+            
           </div>
         </div>
       </div>

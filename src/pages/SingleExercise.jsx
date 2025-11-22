@@ -32,36 +32,46 @@ function SingleExercise() {
 
   return (
     <div className="px-4">
-      <h1 className="font-bold text-3xl mb-2">{exercise.title}</h1>
-      <main>
 
-        <img src={exercise.imgUrl} alt={exercise.title} />
+      <main className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 m-4">
 
-        {exercise.mediaType === "video" && (
-          <video controls loop className="w-2/3 rounded-lg shadow-md">
-            <source src={exercise.mediaUrl} type="video/mp4" />Your browser doesn't support this video format.
-          </video>
-        )}
+        <div>
+          <img className="p-4 w-full h-auto object-contain rounded-full"
+            src={exercise.imgUrl} alt={exercise.title} />
 
-        {exercise.mediaType === "audio" && (
-          <audio controls className="w-2/3 mt-4">
-            <source src={exercise.mediaUrl} type="audio/mpeg" />Your browser doesn't support this audio format.
-          </audio>
-        )}
-
-        <span>{exercise.duration}</span>
-        <HandleFavourites exerciseId={exercise._id}/>
-        <p>{exercise.description}</p>
-
-        <NavLink to="/exercises">
-          <button className="btn btn-secondary">back to all exercises</button>
-        </NavLink>
+          {exercise.mediaType === "video" && (
+            <video controls loop className="w-2/3 rounded-lg shadow-md">
+              <source src={exercise.mediaUrl} type="video/mp4" />Your browser doesn't support this video format.
+            </video>
+          )}
 
 
+        </div>
 
+        <div className="flex flex-col justify-center">
+          <h1 className="font-bold text-2xl md:text-3xl mt-4 mb-2">{exercise.title}</h1>
+          <span>Duration: {exercise.duration} <HandleFavourites exerciseId={exercise._id} /></span>
+
+          <p className="mb-4">{exercise.description}</p>
+
+          {exercise.mediaType === "audio" && (
+            <audio controls className="w-1/3 mb-4">
+              <source src={exercise.mediaUrl} type="audio/mpeg" />Your browser doesn't support this audio format.
+            </audio>
+          )}
+          <div className="flex flex-row gap-4">
+            <NavLink to="/exercises">
+              <button className="btn btn-secondary btn-sm md:btn-md mb-5 p-3">back to all exercises</button>
+            </NavLink>
+
+            <NavLink to="/new-reflection">
+              <button className="btn btn-secondary btn-sm md:btn-md mb-5">write a reflection</button>
+            </NavLink>
+          </div>
+
+
+        </div>
       </main>
-
-
     </div>
   )
 }
