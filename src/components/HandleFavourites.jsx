@@ -46,7 +46,7 @@ const { user, setUser } = useContext(AuthContext)
     return (
         <>
             <button onClick={()=>toggleHeart(exerciseId)} 
-                className="btn btn-square btn-ghost">
+                className="btn btn-ghost">
                 <svg className={`size-[1.2em] transition-transform duration-200 ease-out ${
                    user.favExercises.includes(exerciseId) ? "text-red-600 scale-125" : "text-gray-400 scale-100"}`}
                     xmlns="http://www.w3.org/2000/svg"

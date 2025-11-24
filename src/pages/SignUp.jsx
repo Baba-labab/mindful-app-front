@@ -30,7 +30,7 @@ function SignUp() {
     try {
       const res = await axios.post(`${API_URL}/auth/signup`, newUser);
 
-      setMessage("You have successfully registered!")
+      setMessage({type: "success", text: "You have successfully registered!"})
       setName("")
       setEmail("")
       setPassword("")
@@ -40,19 +40,28 @@ function SignUp() {
       }, 1500);
     }
     catch (error) {
-      setMessage(error.response?.data?.message || "Something went wrong!")
+      const errorMessage = error.response?.data?.message || "Something went wrong!"
+      setMessage({type: "error", text: errorMessage })
     }
   }
 
 
   return (
     <>
-      <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
-        {message && (
-          <div role="alert" className="alert alert-warning alert-outline m-4">
-            <span>{message}</span>
-          </div>
-        )}
+      <div className="bg-[url(/images/sea.jpg)] min-h-screen bg-no-repeat bg-cover">
+
+      {message && (
+        <div className="flex justify-center">
+        <div className={`
+          p-3 rounded-md m-4 text-sm flex justify-center
+      ${message.type === "error" && "bg-red-200 text-red-800"}
+      ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
+      ${message.type === "success" && "bg-green-200 text-green-800"}
+        `}>
+          {message.text}
+        </div>
+        </div>
+      )}
 
         <main className="min-h-screen flex items-center justify-center px-4">
 
@@ -97,6 +106,7 @@ function SignUp() {
               onChange={handlePassword}
               className="input input-bordered w-full"
               required />
+              <div>Must contain 6 characters, 1 letter, 1 upper- & 1 lowercase, 1 number</div>
 
             <button type="submit" className="btn btn-secondary mt-6 w-full" >Sign up</button>
             <Link to="/" className="btn btn-outline mt-3 w-full">

@@ -13,7 +13,7 @@ function CreateReflection() {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [selectedExerciseId, setSelectedExerciseId] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(null);
   const [success, setSuccess] = useState("");
   const [exercises, setExercises] = useState([]);
   const navigate = useNavigate();
@@ -30,7 +30,8 @@ function CreateReflection() {
 
     }
     catch (error) {
-      setMessage(error.response?.data?.error || "An error occured while loading exercises")
+      const errorMessage =error.response?.data?.error || "An error occured while loading exercises"
+      setMessage({ type: "error", text: errorMessage} )
     }
   }
 
@@ -60,6 +61,7 @@ function CreateReflection() {
 
     try {
       const storedToken = localStorage.getItem("token");
+      
       const response = await axios.post(`${API_URL}/reflections`, newReflection,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
@@ -79,23 +81,26 @@ function CreateReflection() {
 
     }
     catch (error) {
-      setMessage({type: "error", text: "An error occured while saving your reflection"})
+      const errorMsg = error.response?.data?.message ||  "An error occured while saving your reflection"
+      setMessage({type: "error", text: errorMsg})
     };
   };
 
 
   return (
-    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)]  bg-no-repeat bg-cover">
+    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
       <h2 className="text-2xl md:text-4xl text-center  text-white p-4 md:mb-5">Start writing a new reflection</h2>
 
       {message && (
+        <div className="flex justify-center">
         <div className={`
-          p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center
+          p-3 rounded-md mb-4 text-sm flex justify-center
       ${message.type === "error" && "bg-red-200 text-red-800"}
       ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
       ${message.type === "success" && "bg-green-200 text-green-800"}
         `}>
           {message.text}
+        </div>
         </div>
       )}
 
@@ -160,7 +165,7 @@ function CreateReflection() {
         </form>
 
         <NavLink to="/dashboard">
-          <button className="btn btn-outline btn-md mb-4 mt-4">Dashboard</button>
+          <button className="btn btn-primary btn-md mb-4 mt-4">Dashboard</button>
         </NavLink>
       </main>
 

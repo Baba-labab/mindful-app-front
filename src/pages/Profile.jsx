@@ -8,7 +8,7 @@ const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 function Profile() {
   const { user, setUser, logout } = useContext(AuthContext)
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -38,8 +38,11 @@ function Profile() {
       const response = await axios.put(`${API_URL}/users/${user._id}`, editedUser,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
+    
 
-      setUser(editedUser)
+      setUser(response.data)
+      localStorage.setItem("user", JSON.stringify(response.data))
+
       setMessage({ type: "success", text: "You have successfully edited your profile!" })
       setTimeout(() => {
         setMessage("")
@@ -53,18 +56,20 @@ function Profile() {
     };
   };
 
-  const handleDelete = async (e) => {
-    e.preventDefault();
+  const handleDelete = async () => {
 
     try {
       const storedToken = localStorage.getItem("token");
-      const resData = await axios.delete(`${API_URL}/users/${user._id}`,
+      await axios.delete(`${API_URL}/users/${user._id}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
 
       setMessage({ type: "success", text: "You have successfully deleted your user profile!" })
-      logout();
+
+      localStorage.removeItem("token");
+      
       setTimeout(() => {
+        logout();
         navigate("/")
       }, 1500);
 

@@ -40,7 +40,7 @@ function SingleExercise() {
             src={exercise.imgUrl} alt={exercise.title} />
 
           {exercise.mediaType === "video" && (
-            <video controls loop className="w-2/3 rounded-lg shadow-md">
+            <video controls loop className="w-full md:w-2/3 rounded-lg shadow-md">
               <source src={exercise.mediaUrl} type="video/mp4" />Your browser doesn't support this video format.
             </video>
           )}
@@ -50,7 +50,15 @@ function SingleExercise() {
 
         <div className="flex flex-col justify-center">
           <h1 className="font-bold text-2xl md:text-3xl mt-4 mb-2">{exercise.title}</h1>
-          <span>Duration: {exercise.duration} <HandleFavourites exerciseId={exercise._id} /></span>
+
+          <div className="grid grid-cols-2">
+            <span className="text-xs uppercase font-semibold opacity-60">Duration:  {exercise.duration}</span>
+            
+            <span className='grid'></span>
+            
+            <span><HandleFavourites exerciseId={exercise._id}/></span>
+          </div>
+
 
           <p className="mb-4">{exercise.description}</p>
 
@@ -61,11 +69,11 @@ function SingleExercise() {
           )}
           <div className="flex flex-row gap-4">
             <NavLink to="/exercises">
-              <button className="btn btn-secondary btn-sm md:btn-md mb-5 p-3">back to all exercises</button>
+              <button className="btn btn-secondary btn-sm md:btn-md mb-5 p-3">All exercises</button>
             </NavLink>
 
             <NavLink to="/new-reflection">
-              <button className="btn btn-secondary btn-sm md:btn-md mb-5">write a reflection</button>
+              <button className="btn btn-secondary btn-sm md:btn-md mb-5">New reflection</button>
             </NavLink>
           </div>
 

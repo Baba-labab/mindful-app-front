@@ -5,11 +5,11 @@ import { useNavigate, Link } from 'react-router-dom'
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function LogIn(props) {
-  const { storeToken, authenticateUser } = useContext(AuthContext)
+  const { user, storeToken, authenticateUser } = useContext(AuthContext)
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(undefined);
+  const [message, setMessage] = useState(null);
 
   const navigate = useNavigate();
 
@@ -19,26 +19,41 @@ function LogIn(props) {
   const handleLogin = async (e) => {
     e.preventDefault()
 
+    if (!email || !password) {
+      setMessage({ type: "warning", text: "email and password are required!" })
+      return
+    }
+
     try {
       const res = await axios.post(`${API_URL}/auth/login`, {
         email, password
       })
       storeToken(res.data.authToken);
+
       await authenticateUser();
       navigate("/dashboard");
     }
     catch (error) {
       console.error("LoginError")
-      setMessage(error.response?.data?.message || "Error logging in")
+      const errorMessage = error.response?.data?.message || "Invalid email or password"
+      setMessage({type: "error", text: errorMessage} )
     }
   };
 
   return (
+    
     <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
-      
+
       {message && (
-        <div role="alert" className="alert alert-warning alert-outline m-10">
-          <span>{message}</span>
+        <div className='flex justify-center'>
+          <div className={`
+          p-3 rounded-md mb-4 text-sm mt-4 flex justify-center
+      ${message.type === "error" && "bg-red-200 text-red-800"}
+      ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
+      ${message.type === "success" && "bg-green-200 text-green-800"}
+        `}>
+            {message.text}
+          </div>
         </div>
       )}
 

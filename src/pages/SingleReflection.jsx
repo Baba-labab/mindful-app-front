@@ -6,7 +6,7 @@ const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function SingleReflection() {
   const [reflection, setReflection] = useState({})
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate();
@@ -37,9 +37,8 @@ function SingleReflection() {
 
   }, [id])
 
-  const handleDelete = async (e) => {
-    e.preventDefault();
-
+  const handleDelete = async () => {
+    
     try {
       const storedToken = localStorage.getItem("token");
       const resData = await axios.delete(`${API_URL}/reflections/${id}`,
@@ -65,12 +64,12 @@ function SingleReflection() {
   else {
 
     return (
-      <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] h-screen bg-no-repeat bg-cover">
+      <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
 
         {message && (
           <div className='flex justify-center'>
         <div className={`
-          p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center
+          p-3 rounded-md mb-4 text-sm flex justify-center
       ${message.type === "error" && "bg-red-200 text-red-800"}
       ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
       ${message.type === "success" && "bg-green-200 text-green-800"}

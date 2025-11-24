@@ -37,11 +37,11 @@ function AllReflections() {
 
 
   return (
-    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] h-screen bg-no-repeat bg-cover">
+    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
 
       {message && (
         <div className='flex justify-center'>
-          <div className="p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center bg-red-200 text-red-800">
+          <div className="p-3 rounded-md mb-4 text-sm flex justify-center bg-red-200 text-red-800">
             {message}
           </div>
         </div>

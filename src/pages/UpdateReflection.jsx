@@ -15,7 +15,7 @@ function UpdateReflection() {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [selectedExerciseId, setSelectedExerciseId] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [exercises, setExercises] = useState([]);
   const navigate = useNavigate();
@@ -148,12 +148,12 @@ function UpdateReflection() {
 
 
   return (
-    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)]  bg-no-repeat bg-cover">
+    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
 
       {message && (
           <div className='flex justify-center'>
         <div className={`
-          p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center
+          p-3 rounded-md mb-4 text-sm flex justify-center
       ${message.type === "error" && "bg-red-200 text-red-800"}
       ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
       ${message.type === "success" && "bg-green-200 text-green-800"}
@@ -226,7 +226,7 @@ function UpdateReflection() {
 
 
         <NavLink to="/dashboard">
-          <button className="btn btn-outline btn-md mb-4 mt-4">Dashboard</button>
+          <button className="btn btn-primary btn-md mb-4 mt-4">Dashboard</button>
         </NavLink>
       </main>
     </div>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../context/auth.context'
 import ExerciseCard from '../components/ExerciseCard';
+import { NavLink } from "react-router-dom"
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run";
 
@@ -61,6 +62,12 @@ function FavExercises() {
 
               </div>
             </div>
+            <div className="flex justify-center">
+              <NavLink to="/exercises">
+                <button className="btn btn-primary btn-md mb-4 mt-4">All exercises</button>
+              </NavLink>
+            </div>
+
 
           </main>
         </div>

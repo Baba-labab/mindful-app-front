@@ -23,6 +23,7 @@ function NavbarPublic() {
         </div>
         <div className="navbar-center">
           <a className="btn btn-ghost text-xl hidden sm:flex lg:flex">mindful moments</a>
+          <img className=""></img>
         </div>
         <div className="navbar-end">
           <NavLink to="/login">
