@@ -23,7 +23,7 @@ function AllReflections() {
 
     }
     catch (error) {
-      setMessage(error.response?.data?.message)
+      setMessage("Error while loading reflections!")
     }
     finally {
       setIsLoading(false)
@@ -38,12 +38,21 @@ function AllReflections() {
 
   return (
     <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] h-screen bg-no-repeat bg-cover">
+
+      {message && (
+        <div className='flex justify-center'>
+          <div className="p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center bg-red-200 text-red-800">
+            {message}
+          </div>
+        </div>
+      )}
+
       {isLoading ? (<div className="flex justify-center mt-10">
         <span className="loading loading-ring loading-lg"></span>
       </div>) : (
         <>
           <div className="flex flex-col justify-center items-center">
-            <h2 className="text-2xl md:text-4xl text-center text-white md:mt-5">My Reflections</h2>
+            <h2 className="text-2xl md:text-4xl text-center text-white mt-5">My Reflections</h2>
             <span className='justify-center mt-2 text-white' >This is an overview of all your reflections</span>
           </div>
 
@@ -52,7 +61,7 @@ function AllReflections() {
 
               {(reflections && reflections.length > 0 ? (reflections.map((ref) => <ReflectionCard key={ref._id} ref={ref} />)
               ) : (
-                <p>You have no reflections yet. Start now by hitting the button below.</p>
+                <p className="p-4">You have no reflections yet. Start now by hitting the button below.</p>
               ))}
             </div>
           </div>
@@ -61,10 +70,10 @@ function AllReflections() {
               <button className="btn btn-secondary btn-md">Write a new reflection</button>
             </NavLink>
             <NavLink to="/dashboard">
-              <button className="btn btn-outline btn-md">Dashboard</button>
+              <button className="btn btn-primary btn-md">Dashboard</button>
             </NavLink>
           </div>
-          
+
         </>
       )}
 

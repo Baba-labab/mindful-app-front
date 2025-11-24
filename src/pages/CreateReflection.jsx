@@ -14,6 +14,7 @@ function CreateReflection() {
   const [title, setTitle] = useState("");
   const [selectedExerciseId, setSelectedExerciseId] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState("");
   const [exercises, setExercises] = useState([]);
   const navigate = useNavigate();
 
@@ -42,7 +43,7 @@ function CreateReflection() {
 
     //alert if input fields are empty
     if (!text || !date) {
-      setMessage("Date and text are required!")
+      setMessage({type: "warning", text: "Date and text are required!"})
       return
     };
 
@@ -63,14 +64,9 @@ function CreateReflection() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
-      console.log(response)
+      //console.log(response)
 
-      // await axios.put(`${API_URL}/users/${user._id}`,
-      //           { reflections: newReflection._id },
-      //           { headers: { Authorization: `Bearer ${storedToken}` } }
-      //       )
-
-      setMessage("You have successfully created a new reflection!")
+      setMessage({type: "success", text: "You have successfully created a new reflection!"})
       setTimeout(() => {
         navigate("/reflections")
       }, 1500);
@@ -83,7 +79,7 @@ function CreateReflection() {
 
     }
     catch (error) {
-      setMessage(error.response?.data?.error || "An error occured while saving your reflection")
+      setMessage({type: "error", text: "An error occured while saving your reflection"})
     };
   };
 
@@ -91,6 +87,17 @@ function CreateReflection() {
   return (
     <div className="px-4 bg-[url(/images/inhale-exhale.jpg)]  bg-no-repeat bg-cover">
       <h2 className="text-2xl md:text-4xl text-center  text-white p-4 md:mb-5">Start writing a new reflection</h2>
+
+      {message && (
+        <div className={`
+          p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center
+      ${message.type === "error" && "bg-red-200 text-red-800"}
+      ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
+      ${message.type === "success" && "bg-green-200 text-green-800"}
+        `}>
+          {message.text}
+        </div>
+      )}
 
       <p className="text-white text-center md:text-lg">Instructions and input</p>
 

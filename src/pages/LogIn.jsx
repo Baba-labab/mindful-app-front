@@ -37,7 +37,7 @@ function LogIn(props) {
     <div className="bg-[url(/images/sea.jpg)] h-screen bg-no-repeat bg-cover">
       
       {message && (
-        <div role="alert" className="alert alert-warning alert-outline m-4">
+        <div role="alert" className="alert alert-warning alert-outline m-10">
           <span>{message}</span>
         </div>
       )}

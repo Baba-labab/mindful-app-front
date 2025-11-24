@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useParams, NavLink } from 'react-router-dom'
+import { useParams, NavLink, useNavigate } from 'react-router-dom'
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -8,6 +8,8 @@ function SingleReflection() {
   const [reflection, setReflection] = useState({})
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(true)
+
+  const navigate = useNavigate();
 
   const { id } = useParams()
 
@@ -26,7 +28,7 @@ function SingleReflection() {
       setLoading(false)
     }
     catch (error) {
-      setMessage(error.response?.data?.message || "Error loading exercise data")
+      setMessage( {type: "error", text:"Error loading exercise data"})
     }
   }
 
@@ -34,6 +36,27 @@ function SingleReflection() {
     getData();
 
   }, [id])
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    try {
+      const storedToken = localStorage.getItem("token");
+      const resData = await axios.delete(`${API_URL}/reflections/${id}`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+
+      setMessage({type: "success", text: "You have successfully deleted your reflection!"})
+      setTimeout(() => {
+        navigate("/reflections")
+      }, 1500);
+
+    }
+    catch (error) {
+      setMessage({type: "error", text: "An error occured while deleting your reflection!"} )
+      
+    }
+  }
 
   if (loading) return <div className="flex justify-center mt-10">
     <span className="loading loading-ring loading-lg"></span>
@@ -44,21 +67,33 @@ function SingleReflection() {
     return (
       <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] h-screen bg-no-repeat bg-cover">
 
+        {message && (
+          <div className='flex justify-center'>
+        <div className={`
+          p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center
+      ${message.type === "error" && "bg-red-200 text-red-800"}
+      ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
+      ${message.type === "success" && "bg-green-200 text-green-800"}
+        `}>
+          {message.text}
+        </div> 
+        </div>
+      )}
 
         <main className="flex flex-col justify-center items-center">
           <div className="bg-white rounded-lg opacity-60 md:w-1/3 mb-4 mt-4 p-4">
 
-            <h1 className="font-bold text-3xl text-center p-4">{reflection.title}</h1>
+            <h1 className="font-bold text-3xl text-center p-4">{reflection?.title}</h1>
             <fieldset className="flex flex-row gap-2 border rounded-lg p-2 m-2">
               <legend className="font-bold">Mood</legend>
-              <span className=""> {reflection.mood}</span>
+              <span className=""> {reflection?.mood}</span>
             </fieldset>
 
-            <p className="flex justify-start border rounded-lg p-2 m-2 italic text-lg">"{reflection.text}"</p>
+            <p className="flex justify-start border rounded-lg p-2 m-2 italic text-lg">"{reflection?.text}"</p>
 
             <fieldset className="flex flex-row gap-2 border rounded-lg p-2 m-2">
               <legend className="font-bold">Related exercise</legend>
-              <p className="flex justify-start"> {reflection.relatedExercise.title}</p>
+              <p className="flex justify-start"> {reflection?.relatedExercise?.title}</p>
             </fieldset>
 
 
@@ -71,7 +106,7 @@ function SingleReflection() {
             </div>
 
             <div className="card-actions justify-center">
-              <button className="btn btn-secondary btn-md mb-4">Delete</button>
+              <button onClick={handleDelete} className="btn btn-secondary btn-md mb-4">Delete</button>
             </div>
           </div>
           <div className="card-actions justify-center">

@@ -31,7 +31,7 @@ function UpdateReflection() {
 
     }
     catch (error) {
-      setMessage(error.response?.data?.error || "An error occured while loading exercises")
+      setMessage({type: "error", text: "An error occured while loading exercises"})
     }
   }
 
@@ -58,7 +58,7 @@ function UpdateReflection() {
       setSelectedExerciseId(data.relatedExercise)
     }
     catch (error) {
-      setMessage(error.response?.data?.message || "Error loading exercise data")
+      setMessage({type: "error", text: "Error loading exercise data"} )
     }
   }
 
@@ -78,7 +78,7 @@ function UpdateReflection() {
 
     //alert if input fields are empty
     if (!text || !date) {
-      setMessage("Date and text are required!")
+      setMessage({type: "warning", text: "Date and text are required!"})
       return
     };
 
@@ -101,7 +101,7 @@ function UpdateReflection() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
 
-      setMessage("You have successfully edited your reflection!")
+      setMessage({type:"success", text:"You have successfully edited your reflection!"})
       setTimeout(() => {
         navigate("/reflections")
       }, 1500);
@@ -114,19 +114,55 @@ function UpdateReflection() {
 
     }
     catch (error) {
-      setMessage(error.response?.data?.error || "An error occured while saving your reflection")
+      setMessage({ type: "error", text: "An error occured while saving your reflection"})
+      
+    };
+  };
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    try {
+      const storedToken = localStorage.getItem("token");
+      const resData = await axios.delete(`${API_URL}/reflections/${id}`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+
+      setMessage({type:"success", text:"You have successfully deleted your reflection!"})
+      setTimeout(() => {
+        navigate("/reflections")
+      }, 1500);
+
       setTitle("")
       setDate("")
       setMood("")
       setText("")
       setSelectedExerciseId("")
 
-    };
-  };
+    }
+    catch (error) {
+      setMessage({ type: "error", text: "An error occured while deleting your reflection!"})
+      
+    }
+  }
 
 
   return (
     <div className="px-4 bg-[url(/images/inhale-exhale.jpg)]  bg-no-repeat bg-cover">
+
+      {message && (
+          <div className='flex justify-center'>
+        <div className={`
+          p-3 rounded-md mb-4 text-sm md:w-1/3 flex justify-center
+      ${message.type === "error" && "bg-red-200 text-red-800"}
+      ${message.type === "warning" && "bg-yellow-200 text-yellow-800"}
+      ${message.type === "success" && "bg-green-200 text-green-800"}
+        `}>
+          {message.text}
+        </div> 
+        </div>
+      )}
+
       <h2 className="text-2xl md:text-4xl text-center text-white p-4 md:mb-5">Edit your reflection</h2>
 
       <main className="flex flex-col items-center justify-center">
@@ -179,7 +215,7 @@ function UpdateReflection() {
 
             <div className="flex justify-center flex-col md:flex-row gap-2 mt-4">
               <button type='submit' className="btn btn-secondary btn-md mb-4">Save</button>
-              <button className="btn btn-secondary btn-md mb-4">Delete</button>
+              <button onClick={handleDelete} className="btn btn-secondary btn-md mb-4">Delete</button>
               <NavLink to="/reflections">
                 <button className="btn btn-secondary btn-md mb-4">All reflections</button>
               </NavLink>
