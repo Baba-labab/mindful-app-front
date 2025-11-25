@@ -58,7 +58,7 @@ function AuthProviderWrapper(props) {
         localStorage.removeItem("token")
     };
 
-    const logOut = () => {
+    const logout = () => {
         removeToken();
         authenticateUser();
         navigate("/")
@@ -78,7 +78,7 @@ function AuthProviderWrapper(props) {
                 setUser,
                 storeToken,
                 authenticateUser,
-                logOut
+                logout
             }}
         >
             {props.children}

@@ -32,7 +32,7 @@ function navbarUser() {
             <a className="btn btn-ghost text-xl hidden sm:flex lg:flex">mindful moments</a>
           </div>
           <div className="navbar-end">
-            <span>Hello {user.name}!</span>
+            <span>Hello!</span>
             <button className="btn btn-ghost btn-circle"
               onClick={() => logOut()}>
               <img

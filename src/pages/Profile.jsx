@@ -7,11 +7,12 @@ const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
 function Profile() {
   const { user, setUser, logout } = useContext(AuthContext)
+ 
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
+  const [name, setName] = useState( user?.name || "");
+  const [email, setEmail] = useState( user?.email || "");
 
   // const [password, setPassword] = useState(user.password);
 
@@ -38,19 +39,21 @@ function Profile() {
       const response = await axios.put(`${API_URL}/users/${user._id}`, editedUser,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-    
 
+      //console.log(response.data)
       setUser(response.data)
+      //console.log(user)
       localStorage.setItem("user", JSON.stringify(response.data))
 
       setMessage({ type: "success", text: "You have successfully edited your profile!" })
       setTimeout(() => {
-        setMessage("")
+        setMessage(null)
       }, 1500);
 
 
     }
     catch (error) {
+      console.log(error)
       setMessage({ type: "error", text: "An error occured while updating your profile!" })
 
     };
@@ -64,17 +67,18 @@ function Profile() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
 
-      setMessage({ type: "success", text: "You have successfully deleted your user profile!" })
+      //setMessage({ type: "success", text: "You have successfully deleted your user profile!" })
 
-      localStorage.removeItem("token");
-      
-      setTimeout(() => {
+      //localStorage.removeItem("token");
+
+      //setTimeout(() => {
         logout();
-        navigate("/")
-      }, 1500);
+       // navigate("/")
+      //}, 1500);
 
     }
     catch (error) {
+      console.log(error)
       setMessage({ type: "error", text: "An error occured while deleting your profile!" })
 
     }
@@ -120,7 +124,7 @@ function Profile() {
 
             <div className="flex justify-center flex-col md:flex-row gap-2 mt-4">
               <button type='submit' className="btn btn-secondary btn-md mb-4">Save</button>
-              <button onClick={handleDelete} className="btn btn-secondary btn-md mb-4">Delete</button>
+              <button type="button" onClick={handleDelete} className="btn btn-secondary btn-md mb-4">Delete</button>
 
             </div>
           </div>
