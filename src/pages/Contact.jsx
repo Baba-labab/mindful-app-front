@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
 import NavbarUser from '../components/NavbarUser'
 import NavbarPublic from '../components/NavbarPublic'
+import Footer from '../components/Footer'
 
 function Contact() {
   const { isLoggedIn } = useContext(AuthContext)
@@ -15,7 +16,7 @@ function Contact() {
       </main>
 
 
-
+<Footer></Footer>
     </>
   )
 }

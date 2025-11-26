@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 import ReflectionCard from '../components/ReflectionCard';
 import { NavLink } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -37,6 +38,7 @@ function AllReflections() {
 
 
   return (
+    <>
     <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
 
       {message && (
@@ -78,6 +80,9 @@ function AllReflections() {
       )}
 
     </div>
+    <Footer></Footer>
+    </>
+    
   )
 }
 

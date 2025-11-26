@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
+import Footer from '../components/Footer'
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -67,14 +68,14 @@ function Profile() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
 
-      //setMessage({ type: "success", text: "You have successfully deleted your user profile!" })
+      setMessage({ type: "success", text: "You have successfully deleted your user profile!" })
 
-      //localStorage.removeItem("token");
+      
 
-      //setTimeout(() => {
+      setTimeout(() => {
         logout();
-       // navigate("/")
-      //}, 1500);
+       
+      }, 1500);
 
     }
     catch (error) {
@@ -86,7 +87,8 @@ function Profile() {
 
 
   return (
-    <div className="px-4 bg-[url(/images/jump.jpg)]  bg-no-repeat bg-cover">
+    <div className="min-h-screen flex flex-col">
+    <div className="px-4 bg-[url(/images/jump.jpg)] bg-no-repeat bg-cover grow">
 
       {message && (
         <div className='flex justify-center'>
@@ -122,10 +124,13 @@ function Profile() {
               <input id="name" name="name" type="text" value={user.name} className="input w-full" onChange={(e) => setName(e.target.value)} />
             </fieldset> */}
 
-            <div className="flex justify-center flex-col md:flex-row gap-2 mt-4">
+            <div className="flex justify-center items-center flex-col gap-2 mt-4">
               <button type='submit' className="btn btn-secondary btn-md mb-4">Save</button>
-              <button type="button" onClick={handleDelete} className="btn btn-secondary btn-md mb-4">Delete</button>
-
+              <div className='flex justify-center items-center flex-col border border-red-950 rounded-lg p-2'>
+                <h2 className=" text-red-950 text-center uppercase font-bold">Danger Zone</h2>
+              <p className=" text-red-900 text-sm text-center">WARNING! If you hit the delete button, your profile and all your reflections will be permanently deleted!</p>
+              <button type="button" onClick={handleDelete} className="btn btn-error btn-sm mt-2 mb-4">Delete</button>
+              </div>
             </div>
           </div>
 
@@ -137,6 +142,9 @@ function Profile() {
         </NavLink>
       </main>
     </div>
+    <Footer></Footer>
+    </div>
+    
   )
 }
 

@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../context/auth.context'
 import ExerciseCard from '../components/ExerciseCard';
 import { NavLink } from "react-router-dom"
+import Footer from '../components/Footer';
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run";
 
@@ -43,37 +44,39 @@ function FavExercises() {
 
 
   return (
+    <>
+      <div className="px-4 min-h-screen bg-[url(/images/to-go-biking.jpg)] bg-cover bg-no-repeat bg-center">
+        {isLoading ? (
+          <div className="flex justify-center mt-10">
+            <span className="loading loading-ring loading-lg"></span>
+          </div>
+        ) : (
 
-    <div className="px-4 min-h-screen bg-[url(/images/to-go-biking.jpg)] bg-cover bg-no-repeat bg-center">
-      {isLoading ? (
-        <div className="flex justify-center mt-10">
-          <span className="loading loading-ring loading-lg"></span>
-        </div>
-      ) : (
+          <div className="flex flex-col justify-center items-center">
+            <h2 className="text-4xl text-center mt-5">My Favourite Exercises</h2>
 
-        <div className="flex flex-col justify-center items-center">
-          <h2 className="text-4xl text-center mt-5">My Favourite Exercises</h2>
+            <main>
+              <div className="flex justify-center">
+                <div className="list bg-base-100 rounded-box shadow-md mt-10 mb-10">
 
-          <main>
-            <div className="flex justify-center">
-              <div className="list bg-base-100 rounded-box shadow-md mt-10 mb-10">
+                  {exercises && (exercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
 
-                {exercises && (exercises.map((exercise) => <ExerciseCard key={exercise._id} exercise={exercise} />))}
-
+                </div>
               </div>
-            </div>
-            <div className="flex justify-center">
-              <NavLink to="/exercises">
-                <button className="btn btn-primary btn-md mb-4 mt-4">All exercises</button>
-              </NavLink>
-            </div>
+              <div className="flex justify-center">
+                <NavLink to="/exercises">
+                  <button className="btn btn-primary btn-md mb-4 mt-4">All exercises</button>
+                </NavLink>
+              </div>
 
 
-          </main>
-        </div>
-      )}
-    </div>
+            </main>
+          </div>
+        )}
+      </div>
+      <Footer></Footer>
 
+    </>
   )
 }
 

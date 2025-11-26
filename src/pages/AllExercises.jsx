@@ -4,6 +4,7 @@ import ExerciseCard from '../components/ExerciseCard'
 import { AuthContext } from '../context/auth.context';
 import CategoryCard from '../components/CategoryCard';
 import { NavLink } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -18,7 +19,7 @@ function AllExercises() {
   const allCategories = [
     { name: "balance", categoryImg: "images/equality.png" },
     { name: "energy", categoryImg: "images/functional.png" },
-    { name: "expression", categoryImg: "images/magic.png" },
+    { name: "expression", categoryImg: "images/idea.png" },
     { name: "connection", categoryImg: "images/network-user.png" },
     { name: "nourishment", categoryImg: "images/gymnast-diet.png" },
     { name: "rest", categoryImg: "images/sleep.png" }];
@@ -61,7 +62,8 @@ function AllExercises() {
 
 
   return (
-    <div className="px-4 min-h-screen bg-[url(/images/to-go-biking.jpg)] bg-cover bg-no-repeat bg-center">
+    <>
+      <div className="px-4 min-h-screen bg-[url(/images/to-go-biking.jpg)] bg-cover bg-no-repeat bg-center">
       {isLoading ? (
         <div className="flex justify-center mt-10">
           <span className="loading loading-ring loading-lg"></span>
@@ -106,6 +108,9 @@ function AllExercises() {
         </>
       )}
     </div>
+    <Footer></Footer>
+    </>
+  
   )
 }
 

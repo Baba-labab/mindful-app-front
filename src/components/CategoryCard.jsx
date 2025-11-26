@@ -5,7 +5,7 @@ function CategoryCard({ filterExercises, cat, isActive }) {
 
 
     return (
-        <div>
+        <div className="tooltip tooltip-info" data-tip={cat.name}>
             <button className={`
                flex flex-col items-center justify-center p-3 rounded-xl shadow-sm 
         transition-all hover:scale-105 active:scale-95 border aspect-square w-full

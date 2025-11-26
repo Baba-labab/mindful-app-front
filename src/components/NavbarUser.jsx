@@ -3,12 +3,12 @@ import { AuthContext } from '../context/auth.context'
 import { useContext } from 'react'
 
 function navbarUser() {
-  const { logOut, user } = useContext(AuthContext)
+  const { logout, user } = useContext(AuthContext)
 
   return (
     <div>
       <aside>
-        <nav className="navbar bg-base-100 shadow-sm">
+        <nav className="navbar bg-base-100 opacity-90 shadow-sm">
           <div className="navbar-start">
             <div className="dropdown">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -16,7 +16,7 @@ function navbarUser() {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 ml-3 w-52 p-2 shadow">
                 <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                 <li><NavLink to="/exercises">Exercises</NavLink></li>
                 <li><NavLink to="/favourites">Favourite Exercises</NavLink></li>
@@ -29,12 +29,14 @@ function navbarUser() {
             </div>
           </div>
           <div className="navbar-center">
-            <a className="btn btn-ghost text-xl hidden sm:flex lg:flex">mindful moments</a>
+            {/* <span className="btn btn-ghost text-xl text-blue-950 italic hidden sm:flex lg:flex">my</span> */}
+            <img src="/images/mm-logo-1.png" alt="mindful moments" className="w-20 h-20"></img>
+            <a className="btn btn-ghost text-xl text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</a>
           </div>
           <div className="navbar-end">
-            <span>Hello!</span>
+            {/* <span>Hello!</span> */}
             <button className="btn btn-ghost btn-circle"
-              onClick={() => logOut()}>
+              onClick={() => logout()}>
               <img
                 src="images/user-logout.png"
                 alt="logout"

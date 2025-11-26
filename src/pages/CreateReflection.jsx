@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
+import Footer from '../components/Footer'
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -88,6 +89,7 @@ function CreateReflection() {
 
 
   return (
+    <>
     <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
       <h2 className="text-2xl md:text-4xl text-center  text-white p-4 md:mb-5">Start writing a new reflection</h2>
 
@@ -165,13 +167,15 @@ function CreateReflection() {
         </form>
 
         <NavLink to="/dashboard">
-          <button className="btn btn-primary btn-md mb-4 mt-4">Dashboard</button>
+          <button className="btn btn-primary btn-md mb-10 mt-4">Dashboard</button>
         </NavLink>
       </main>
 
-
-
     </div>
+
+    <Footer></Footer>
+    </>
+    
   )
 }
 
