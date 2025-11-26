@@ -71,7 +71,7 @@ function AllExercises() {
       ) : (
         <>
           <div className="flex flex-col justify-center items-center">
-            <h2 className="text-xl md:text-4xl text-center mt-5">How do you want to spent your break?</h2>
+            <h2 className="text-xl md:text-4xl text-center mt-5">How do you want to spend your break?</h2>
             <span className='text-sm md:text-lg text-center justify-center mt-2'>This is an overview of all available exercises. You can filter them by category</span>
           </div>
 

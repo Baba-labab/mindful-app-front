@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect, useContext } from "react"
 import { useNavigate, NavLink, useParams } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
+import Footer from '../components/Footer'
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -148,7 +149,8 @@ function UpdateReflection() {
 
 
   return (
-    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
+    <div className="min-h-screen flex flex-col">
+    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] bg-no-repeat bg-cover grow">
 
       {message && (
           <div className='flex justify-center'>
@@ -180,7 +182,7 @@ function UpdateReflection() {
                 <option value="" disabled>Pick an exercise</option>
                 {exercises.map((ex => <option key={ex._id} value={ex._id}>{ex.title}</option>))}
               </select>
-              <span className="label">optional</span>
+              <span className="label">required</span>
             </fieldset>
 
             <fieldset className="flex justify-center flex-col w-full max-w-md">
@@ -199,7 +201,7 @@ function UpdateReflection() {
                 <option value="connected">connected</option>
                 <option value="angry">angry</option>
               </select>
-              <span className="label">optional</span>
+              <span className="label">required</span>
             </fieldset>
 
             <fieldset className="flex flex-col justify-center w-full max-w-md " >
@@ -215,7 +217,7 @@ function UpdateReflection() {
 
             <div className="flex justify-center flex-col md:flex-row gap-2 mt-4">
               <button type='submit' className="btn btn-secondary btn-md mb-4">Save</button>
-              <button onClick={handleDelete} className="btn btn-secondary btn-md mb-4">Delete</button>
+              <button onClick={handleDelete} className="btn btn-error btn-md mb-4">Delete</button>
               <NavLink to="/reflections">
                 <button className="btn btn-secondary btn-md mb-4">All reflections</button>
               </NavLink>
@@ -229,6 +231,8 @@ function UpdateReflection() {
           <button className="btn btn-primary btn-md mb-4 mt-4">Dashboard</button>
         </NavLink>
       </main>
+    </div>
+    <Footer></Footer>
     </div>
   )
 }

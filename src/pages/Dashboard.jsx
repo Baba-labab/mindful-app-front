@@ -7,10 +7,9 @@ function Dashboard() {
   const { user } = useContext(AuthContext)
   return (
     <>
+      <div>
 
-      <div className="h-screen overflow-hidden">
-
-        <div className="hero min-h-screen bg-cover bg-center"
+        <div className="hero h-dvh bg-cover bg-center"
           style={{
             backgroundImage:
               "url(/images/shellfish.jpg)",
@@ -19,17 +18,20 @@ function Dashboard() {
           <div className="hero-overlay"></div>
           <div className="hero-content text-neutral-content text-center">
             <div className="max-w-md">
-              <h1 className="mb-5 uppercase text-2xl md:text-2xl ">Welcome {user.name} to your mindful break!</h1>
+              <h1 className="mt-10 mb-5 uppercase text-2xl md:text-2xl ">Welcome {user.name}!</h1>
               <p className="mb-5 mt-5 text-lg">
                 What do you want to do now?
               </p>
               <div className="grid grid-cols-1">
+
+                <a href="#check-in" title="check-in" className="btn btn-secondary mt-5">Check in with yourself</a>
+
                 <NavLink to="/exercises">
-                  <button className="btn btn-neutral mt-5">Start your break</button>
+                  <button className="btn btn-primary mt-5">Explore the exercises</button>
                 </NavLink>
 
                 <NavLink to="/reflections">
-                  <button className="btn btn-primary mt-5">View your reflections</button>
+                  <button className="btn btn-primary mt-5 mb-10">View your reflections</button>
                 </NavLink>
               </div>
             </div>
@@ -37,16 +39,17 @@ function Dashboard() {
         </div>
       </div>
 
-      <div>
-        <h1 className="mb-10 mt-20 text-xl text-center uppercase md:text-xl ">Time to make a break!</h1>
+      <div id="check-in" className="px-4">
+        <h1 className="mt-10 mb-10 text-xl text-center uppercase md:text-xl ">Time to make a break!</h1>
         <div className="flex flex-col items-center">
           <div className="flex justify-center items-center w-64 h-64 bg-blue-950 rounded-full">
             <span className="flex justify-center text-4xl italic uppercase text-white opacity-50">pause</span>
           </div>
-          <div className='flex flex-col justify-center'>
-            <span className="mt-10 text-center italic" >For a minute, close your eyes and take a few deep breaths. </span>
-            <p className="mt-2 text-center italic">Then start feeling your body. Don't judge what comes up. Just observe.</p>
-            <p className="mt-5 text-center text-lg italic font-bold">Now ask yourself: What do I need right now?</p>
+          <div className='flex flex-col justify-center border rounded-lg px-2 mt-5 mb-10'>
+            <span className="mt-10 text-center italic" >For a moment, close your eyes and take a few deep breaths. </span>
+            <span className="mt-2 text-center italic">Gently bring your awareness to your body. Don't judge whatever comes up. Simply observe.</span>
+            <span className="mt-5 text-center text-lg italic">Then ask yourself:</span>
+            <span className="mt-5 text-center text-lg italic font-bold">What do I need right now?</span>
 
 
             <ul className="list bg-base-100 rounded-box shadow-md mt-5 mb-10">
@@ -103,7 +106,7 @@ function Dashboard() {
                 <div><img className="size-10 rounded-box" src="/images/gymnast-diet.png" /></div>
                 <div>
                   <div>Nourishment</div>
-                  <div className="text-xs uppercase font-semibold opacity-60">If your bory needs nourishment.</div>
+                  <div className="text-xs uppercase font-semibold opacity-60">If your body needs nourishment.</div>
                 </div>
                 {/*  <button className="btn btn-square btn-ghost">
                   <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
@@ -126,17 +129,17 @@ function Dashboard() {
             </ul>
             <div className="flex justify-center">
               <NavLink to="/exercises">
-                <button className="btn btn-primary mb-10">Find your exercise</button>
+                <button className="btn btn-primary mb-2">Start your break</button>
               </NavLink>
-            </div>
+
+            </div><span className="text-sm text-center p-5">This will lead you to a list of exercises, which you can filter by your chosen category.</span>
           </div>
 
         </div>
 
       </div>
+
       <Footer></Footer>
-
-
     </>
 
   )

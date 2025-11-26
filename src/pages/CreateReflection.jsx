@@ -89,8 +89,8 @@ function CreateReflection() {
 
 
   return (
-    <>
-    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] min-h-screen bg-no-repeat bg-cover">
+    <div className='min-h-screen flex flex-col'>
+    <div className="px-4 bg-[url(/images/inhale-exhale.jpg)] bg-no-repeat bg-cover grow">
       <h2 className="text-2xl md:text-4xl text-center  text-white p-4 md:mb-5">Start writing a new reflection</h2>
 
       {message && (
@@ -123,7 +123,7 @@ function CreateReflection() {
                 <option value="" disabled>Pick an exercise</option>
                 {exercises.map((ex => <option key={ex._id} value={ex._id}>{ex.title}</option>))}
               </select>
-              <span className="label">optional</span>
+              <span className="label">required</span>
             </fieldset>
 
             <fieldset className="flex flex-col justify-center w-full max-w-md mb-2" >
@@ -142,7 +142,7 @@ function CreateReflection() {
                 <option value="connected">connected</option>
                 <option value="angry">angry</option>
               </select>
-              <span className="label">optional</span>
+              <span className="label">required</span>
             </fieldset>
 
             <fieldset className="flex flex-col justify-center w-full max-w-md mb-2">
@@ -174,7 +174,7 @@ function CreateReflection() {
     </div>
 
     <Footer></Footer>
-    </>
+    </div>
     
   )
 }

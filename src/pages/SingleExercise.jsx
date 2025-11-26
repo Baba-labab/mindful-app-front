@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import HandleFavourites from '../components/HandleFavourites'
+import Footer from '../components/Footer'
 
 const API_URL = "https://site--mindful-back--gs6nhbyk5d2v.code.run"
 
@@ -31,55 +32,59 @@ function SingleExercise() {
 
 
   return (
-    <div className="px-4">
+    <div className="h-screen flex flex-col">
+      <div className="px-4 grow">
 
-      <main className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 m-4">
-
-        <div>
-          <img className="p-4 w-full h-auto object-contain rounded-full"
-            src={exercise.imgUrl} alt={exercise.title} />
-
-          {exercise.mediaType === "video" && (
-            <video controls loop className="w-full md:w-2/3 rounded-lg shadow-md">
-              <source src={exercise.mediaUrl} type="video/mp4" />Your browser doesn't support this video format.
-            </video>
-          )}
+        <main className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 m-4">
 
 
-        </div>
+          <div className="flex justify-center items-center md:mt-20">
+            {exercise.mediaType !== "video" && (<img className="p-4 w-full h-auto object-contain rounded-full"
+              src={exercise.imgUrl} alt={exercise.title} />)
 
-        <div className="flex flex-col justify-center">
-          <h1 className="font-bold text-2xl md:text-3xl mt-4 mb-2">{exercise.title}</h1>
+            }
+         
+            {exercise.mediaType === "video" && (
+              <video controls loop className="w-full md:w-2/3 rounded-lg shadow-md">
+                <source src={exercise.mediaUrl} type="video/mp4" />Your browser doesn't support this video format.
+              </video>
+            )}
 
-          <div className="grid grid-cols-2">
-            <span className="text-xs uppercase font-semibold opacity-60">Duration:  {exercise.duration}</span>
-            
-            <span className='grid'></span>
-            
-            <span><HandleFavourites exerciseId={exercise._id}/></span>
           </div>
 
+          <div className="flex flex-col justify-center">
+            <h1 className="font-bold text-2xl md:text-3xl mt-4 mb-2">{exercise.title}</h1>
 
-          <p className="mb-4">{exercise.description}</p>
+            <div className="grid grid-cols-2">
+              <span className="text-xs uppercase font-semibold opacity-60">Duration:  {exercise.duration}</span>
 
-          {exercise.mediaType === "audio" && (
-            <audio controls className="w-1/3 mb-4">
-              <source src={exercise.mediaUrl} type="audio/mpeg" />Your browser doesn't support this audio format.
-            </audio>
-          )}
-          <div className="flex flex-row gap-4">
-            <NavLink to="/exercises">
-              <button className="btn btn-secondary btn-sm md:btn-md mb-5 p-3">All exercises</button>
-            </NavLink>
+              <span className='grid'></span>
 
-            <NavLink to="/new-reflection">
-              <button className="btn btn-secondary btn-sm md:btn-md mb-5">New reflection</button>
-            </NavLink>
+              <span><HandleFavourites exerciseId={exercise._id} /></span>
+            </div>
+
+            <p className="mb-4">{exercise.description}</p>
+
+            {exercise.mediaType === "audio" && (
+              <audio controls className="w-full md:w-2/3 mb-4">
+                <source src={exercise.mediaUrl} type="audio/mpeg" />Your browser doesn't support this audio format.
+              </audio>
+            )}
+
+            <div className="flex flex-row gap-4">
+              <NavLink to="/exercises">
+                <button className="btn btn-secondary btn-sm md:btn-md mb-5 p-3">All exercises</button>
+              </NavLink>
+
+              <NavLink to="/new-reflection">
+                <button className="btn btn-secondary btn-sm md:btn-md mb-5">New reflection</button>
+              </NavLink>
+            </div>
           </div>
 
-
-        </div>
-      </main>
+        </main>
+      </div>
+      <Footer></Footer>
     </div>
   )
 }
