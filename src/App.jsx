@@ -16,6 +16,7 @@ import CreateReflection from './pages/CreateReflection'
 import UpdateReflection from './pages/UpdateReflection'
 import FavExercises from './pages/FavExercises'
 import Profile from './pages/Profile'
+import Sources from './pages/Sources'
 import NavbarPublic from './components/NavbarPublic'
 import NavbarUser from './components/NavbarUser'
 import IsAnon from './components/IsAnon'
@@ -28,15 +29,16 @@ function App() {
     <div>
       <Routes>
         {/* public routes */}
-        <Route element={<NavbarPublic />}>
+        {/* <Route element={<NavbarPublic />}> */}
           <Route path="/" element={<Home />}></Route>
-        </Route>
+       {/* </Route> */}
         <Route path="/contact" element={<Contact />}></Route>
 
         {/* anon routes */}
         <Route element={<IsAnon />}>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/sources" element={<Sources />}></Route>
         </Route>
 
 

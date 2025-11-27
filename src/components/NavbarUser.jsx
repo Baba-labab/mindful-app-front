@@ -16,7 +16,7 @@ function navbarUser() {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 ml-3 w-52 p-2 shadow">
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 ml-3 w-52 p-2 shadow">
                 <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                 <li><NavLink to="/exercises">Exercises</NavLink></li>
                 <li><NavLink to="/favourites">Favourite Exercises</NavLink></li>
@@ -29,7 +29,7 @@ function navbarUser() {
             </div>
           </div>
           <div className="navbar-center">
-            {/* <span className="btn btn-ghost text-xl text-blue-950 italic hidden sm:flex lg:flex">my</span> */}
+           
             <img src="/images/mm-logo-1.png" alt="mindful moments" className="w-20 h-20"></img>
             <a className="btn btn-ghost text-xl text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</a>
           </div>
