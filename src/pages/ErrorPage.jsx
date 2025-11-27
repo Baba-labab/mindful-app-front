@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 function ErrorPage() {
   return (
-    <div className="px-4">
+    <div>
       <div className="hero min-h-screen"
         style={{
           backgroundImage:

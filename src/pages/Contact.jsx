@@ -11,40 +11,37 @@ function Contact() {
   return (
     <div className="min-h-screen flex flex-col">
       {isLoggedIn ? <NavbarUser /> : <NavbarPublic />}
-      <div className="px-4 bg-base-300 min-h-screen bg-no-repeat bg-cover">
-        <main className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 m-4">
-          
-          <div className="flex justify-center items-center md:mt-20">
-          <img className="p-4 w-full h-auto object-contain rounded-full"
-            src="/images/rest.jpg" alt="profile picture of Barbara" />
+      <div className="px-4 bg-base-300 min-h-screen bg-cover">
+
+        <h1 className="font-bold text-2xl md:text-3xl text-center p-4">About Me</h1>
+        <main className="flex flex-col md:flex-row justify-center gap-10">
+
+          <div className="flex justify-center items-center">
+            <img className="p-4 w-64 h-auto object-contain rounded-full"
+              src="/images/IMG_2277.JPG" alt="profile picture of Barbara" />
           </div>
-      <div className="flex flex-col justify-center">
-        <h1 className="font-bold text-2xl md:text-3xl mt-4 mb-2">About me</h1>
 
-        <div className="grid grid-cols-2">
-          <span className="text-xs uppercase font-semibold opacity-60">Text</span>
+          <div className="flex flex-col justify-center items-center">
 
-          <span className='grid'>Hi, I'm Barbara!</span>
+            <span className="text-lg uppercase font-semibold opacity-60 mb-4">Hi, I'm Barbara -</span>
 
-          <span>Text</span>
-        </div>
+            <p className="mb-4 md:w-100 italic">
+              an educator and former forest kindergarten practitioner who has learned how essential small moments of pause can be. After years in social and educational settings, I saw how quickly we lose ourselves in busy days and how much a brief mindful break can restore clarity and calm.</p>
+              <p className="mb-4 md:w-100 italic">I created the Mindful Moments App to offer simple, grounding pauses that truly fit into everyday life, even when time feels tight.</p>
 
-        <p className="mb-4">Text</p>
+            <div className="flex flex-row gap-4 mb-10">
+              <a href={"www.linkedin.com/in/barbara-goldbeck-7ba383367"}
+                className="text-lg">LinkedIn</a>
 
-        <div className="flex flex-row gap-4">
-          <NavLink to="/exercises">
-            <button className="btn btn-secondary btn-sm md:btn-md mb-5 p-3">LinkedIn</button>
-          </NavLink>
+              <a href={"https://github.com/Baba-labab"}
+                className="text-lg">GitHub</a>
+            </div>
 
-          <NavLink to="/new-reflection">
-            <button className="btn btn-secondary btn-sm md:btn-md mb-5">GitHub</button>
-          </NavLink>
-        </div>
-      </div>
+          </div>
 
-    </main>
+        </main>
       </div >
-    <Footer></Footer>
+      <Footer></Footer>
     </div >
   )
 }

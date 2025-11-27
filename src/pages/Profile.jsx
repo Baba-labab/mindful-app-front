@@ -108,7 +108,7 @@ function Profile() {
       <main className="flex flex-col items-center justify-center">
         <form onSubmit={handleSubmit} className="flex justify-center w-full md:w-2/3 p-4">
 
-          <div className='w-full flex flex-col items-center bg-white rounded-lg opacity-90 p-4 md:w-2/3'>
+          <div className='w-full flex flex-col items-center bg-white/90 rounded-lg p-4 md:w-2/3'>
             <fieldset className="flex flex-col justify-center w-full max-w-md mb-2">
               <legend className="fieldset-legend font-bold">Your name</legend>
               <input id="name" name="name" type="text" value={name} className="input w-full" onChange={(e) => setName(e.target.value)} />

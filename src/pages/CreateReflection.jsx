@@ -111,7 +111,7 @@ function CreateReflection() {
       <main className="flex flex-col items-center justify-center">
         <form onSubmit={handleSubmit} className="flex justify-center w-full md:w-2/3 p-4">
 
-          <div className='w-full flex flex-col items-center bg-white rounded-lg opacity-80 p-4 md:w-2/3'>
+          <div className='w-full flex flex-col items-center bg-white/80 rounded-lg p-4 md:w-2/3'>
             <fieldset className="flex flex-col justify-center w-full max-w-md mb-2">
               <legend className="fieldset-legend font-bold">Title</legend>
               <input id="title" name="title" type="text" value={title} className="input w-full text-black" placeholder="Name your reflection" onChange={(e) => setTitle(e.target.value)} />

@@ -7,8 +7,8 @@ function navbarUser() {
 
   return (
     <div>
-      <aside>
-        <nav className="navbar bg-base-100 opacity-90 shadow-sm">
+      
+        <nav className="navbar bg-base-100 shadow-sm">
           <div className="navbar-start">
             <div className="dropdown">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -16,12 +16,12 @@ function navbarUser() {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 ml-3 w-52 p-2 shadow">
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-9999 mt-3 ml-3 w-52 p-2 shadow">
                 <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                 <li><NavLink to="/exercises">Exercises</NavLink></li>
                 <li><NavLink to="/favourites">Favourite Exercises</NavLink></li>
                 <li><NavLink to="/reflections">Reflections</NavLink></li>
-                <li><NavLink to="new-reflection">New Reflection</NavLink></li>
+                <li><NavLink to="/new-reflection">New Reflection</NavLink></li>
                 <li><NavLink to="/profile">Profile</NavLink></li>
                 <li><NavLink to="/contact">Contact</NavLink></li>
 
@@ -46,7 +46,7 @@ function navbarUser() {
           </div>
         </nav>
 
-      </aside>
+      
 
 
       <main>

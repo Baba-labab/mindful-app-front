@@ -5,7 +5,7 @@ function NavbarPublic() {
   return (
     <div>
 
-      <nav className="navbar bg-base-100 shadow-sm">
+      <nav className="navbar fixed top-0 left-0 right-0 h-25 bg-base-100 shadow-sm">
         <div className="navbar-start">
 
           {/* menu for small screens */}
@@ -17,27 +17,30 @@ function NavbarPublic() {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
               <li><NavLink to="/">Home</NavLink></li>
-              <li><a href="#check-in" title="check-in">About</a></li>
+              {/* <li><NavLink to="/">About</NavLink></li> */}
               <li><NavLink to="/contact">Contact</NavLink></li>
-              <li><NavLink to="/sources"></NavLink></li>
-              <li><NavLink to="/signup">Sign up</NavLink></li>
+              <li><NavLink to="/sources">Resources</NavLink></li>
+
             </ul>
           </div>
 
           {/* menu for larger screens */}
           <div className="hidden md:flex flex-1 justify-start gap-2 ">
             <NavLink to="/">Home</NavLink>
-            <NavLink>About</NavLink>
+            {/* <NavLink>About</NavLink> */}
             <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/sources"></NavLink>
-            <NavLink to="/signup">Sign up</NavLink>
+            <NavLink to="/sources">Resources</NavLink>
+
 
           </div>
 
         </div>
         <div className="navbar-center">
           <img src="/images/mm-logo-1.png" alt="mindful moments" className="w-20 h-20"></img>
-          <a href="/home" className="btn btn-ghost text-xl  text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</a>
+          <NavLink to="/">
+            <span className="btn btn-ghost text-xl  text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</span>
+          </NavLink>
+
           <img className=""></img>
         </div>
         <div className="navbar-end ">
@@ -56,7 +59,7 @@ function NavbarPublic() {
         </div>
       </nav>
 
-      <main>
+      <main className="pt-25">
         <Outlet />
       </main>
 

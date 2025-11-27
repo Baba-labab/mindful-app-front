@@ -59,7 +59,7 @@ function AllReflections() {
           </div>
 
           <div className='flex justify-center mb-10 mt-10'>
-            <div className='list bg-base-100 opacity-70 rounded-box shadow-md md:w-1/3'>
+            <div className='list bg-white/70 rounded-box shadow-md md:w-1/3'>
 
               {(reflections && reflections.length > 0 ? (reflections.map((ref) => <ReflectionCard key={ref._id} ref={ref} />)
               ) : (

@@ -5,7 +5,7 @@ function Home() {
   return (
 
     <div>
-<nav className="navbar bg-base-100 shadow-sm">
+<nav className="navbar fixed top-0 left-0 right-0 bg-base-100 shadow-sm">
         <div className="navbar-start">
 
           {/* menu for small screens */}
@@ -19,7 +19,7 @@ function Home() {
               <li><NavLink to="/">Home</NavLink></li>
               <li><a href="#about" title="about">About</a></li>
               <li><NavLink to="/contact">Contact</NavLink></li>
-              <li><NavLink to="/sources"></NavLink></li>
+              <li><NavLink to="/sources">Resources</NavLink></li>
               <li><NavLink to="/signup">Sign up</NavLink></li>
             </ul>
           </div>
@@ -29,15 +29,16 @@ function Home() {
             <NavLink to="/">Home</NavLink>
             <a href="#about" title="about">About</a>
             <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/sources"></NavLink>
-            <NavLink to="/signup">Sign up</NavLink>
-
+            <NavLink to="/sources">Resources</NavLink>
           </div>
 
         </div>
         <div className="navbar-center">
           <img src="/images/mm-logo-1.png" alt="mindful moments" className="w-20 h-20"></img>
-          <a href="/home" className="btn btn-ghost text-xl  text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</a>
+         <NavLink to="/">
+          <span className="btn btn-ghost text-xl text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</span>
+         </NavLink>
+          
           <img className=""></img>
         </div>
         <div className="navbar-end ">
@@ -56,18 +57,18 @@ function Home() {
         </div>
       </nav>
 
-      <div className="h-screen overflow-hidden">
+      <div className="h-screen">
         <div className="hero min-h-screen bg-cover bg-center"
           style={{
             backgroundImage:
               "url(/images/sea.jpg)",
           }}
         >
-          <div className="hero-overlay"></div>
-          <div className="hero-content text-neutral-content text-center">
+          <div></div>
+          <div className="text-neutral-content text-center">
             <div className="max-w-md">
-              <h1 className="mb-5 text-4xl md:text-6xl font-bold">Mindful Moments</h1>
-              <p className="mb-5 mt-5 text-lg italic">
+              <h1 className="mb-5 text-4xl md:text-6xl text-gray-600 font-bold">Mindful Moments</h1>
+              <p className="p-5 text-lg text-gray-600 italic">
                 Pause in harmony with your needs
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2">
@@ -121,11 +122,11 @@ function Home() {
         </div>
       </div>
 
-      <div>
-        <h2>Free resources and transparency</h2>
-        <p>This app contains a curated selection of freely available exercises from around the internet. You can find all sources I used here.</p>
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-center text-3xl font-bold p-4">Free resources and transparency</h2>
+        <p className="px-4 text-center">This app contains a curated selection of freely available exercises from around the internet. You can find all sources I used here:</p>
         <NavLink to="/sources">
-          <button>Sources</button>
+          <button className="btn btn-primary mt-5 mb-10">Sources</button>
         </NavLink>
       </div>
 
