@@ -2,7 +2,7 @@
 # mindful-app-front
 Final bootcamp MERN project
 
-This app helps users to take mindful, needs based breaks and write reflections. (A timer sets the time for the break.)
+This app helps users to take mindful, needs based breaks and write reflections.
 
 ## User Stories
 
@@ -73,7 +73,7 @@ admin profile:
 | `/update-reflection/:id`  | NavbarUser, UpdateReflection,  |                             |                                                               |
 |                           | Footer                         | user only `<PrivateRoute>`  | Shows a form to edit a reflection                             |
 | `/profile`                | NavbarUser, Footer             | user only `<PrivateRoute>`  | Shows users profile information                               |
-|
+
 
 ## Components
 
