@@ -5,7 +5,7 @@ function NavbarPublic() {
   return (
     <div>
 
-      <nav className="navbar fixed top-0 left-0 right-0 h-25 bg-base-100 shadow-sm">
+      <nav className="navbar fixed top-0 left-0 right-0 h-25 bg-base-100 shadow-sm z-9999">
         <div className="navbar-start">
 
           {/* menu for small screens */}

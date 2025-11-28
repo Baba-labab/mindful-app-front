@@ -25,7 +25,7 @@ function Home() {
           </div>
 
           {/* menu for larger screens */}
-          <div className="hidden md:flex flex-1 justify-start gap-2 ">
+          <div className="hidden md:flex flex-1 justify-start md:gap-6 ml-4">
             <NavLink to="/">Home</NavLink>
             <a href="#about" title="about">About</a>
             <NavLink to="/contact">Contact</NavLink>
