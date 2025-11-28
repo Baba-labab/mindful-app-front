@@ -11,7 +11,7 @@ function Sources() {
         <h1 className="text-black text-center text-4xl p-10">List of Resources</h1>
         <div className="flex justify-center">
           <div className="overflow-x-auto bg-white/80 rounded-lg md:w-2/3 mb-10">
-            <table className="table">
+            <table className="table table-sm">
               {/* head */}
               <thead>
                 <tr>
@@ -24,12 +24,14 @@ function Sources() {
                 {/* row 1 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
                           <img
+                            className="object-cover w-full h-full"
                             src="images/be-now.jpg"
-                            alt="images with collage be now" />
+                            alt="images with collage be now"
+                          />
                         </div>
                       </div>
                       <div>
@@ -48,10 +50,10 @@ function Sources() {
                 {/* row 2 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="images/bench.jpg"
                             alt="bench" />
                         </div>
@@ -72,10 +74,10 @@ function Sources() {
                 {/* row 3 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="images/inhale-exhale.jpg"
                             alt="hand holding pen" />
                         </div>
@@ -96,10 +98,10 @@ function Sources() {
                 {/* row 4 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="images/jump.jpg"
                             alt="man jumping on empty street" />
                         </div>
@@ -120,10 +122,10 @@ function Sources() {
                 {/* row 5 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="images/to-go-biking.jpg"
                             alt="girl on a one wheel bike" />
                         </div>
@@ -145,10 +147,10 @@ function Sources() {
                 {/* row 6 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="images/sea.jpg"
                             alt="fisherboat on quiet sea" />
                         </div>
@@ -170,10 +172,10 @@ function Sources() {
                 {/* row 7 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="images/shellfish.jpg"
                             alt="shellfish" />
                         </div>
@@ -194,14 +196,12 @@ function Sources() {
                 {/* row 8 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        {/* <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="images/shellfish.jpg"
-                          alt="shellfish" />    
-                      </div> */}
-                        <span className="text-sm opacity-50">Three-minute breathing</span>
+                      <div className="overflow-hidden rounded-lg h-12 w-12">
+                         <span className="text-sm opacity-50">Three-minute breathing</span>
+                      </div> 
+                        
                       </div>
                       <div>
                         <div className="font-bold">Peter Morgan</div>
@@ -219,14 +219,12 @@ function Sources() {
                 {/* row 9 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        {/* <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="images/shellfish.jpg"
-                          alt="shellfish" />    
-                      </div> */}
-                        <span className="text-sm opacity-50">Clouds mp4</span>
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <span className="text-sm opacity-50">Clouds mp4</span>
+                        </div>
+
                       </div>
                       <div>
                         <div className="font-bold">katingthon</div>
@@ -244,14 +242,12 @@ function Sources() {
                 {/* row 10 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        {/* <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src="images/shellfish.jpg"
-                          alt="shellfish" />    
-                      </div> */}
-                        <span className="text-sm opacity-50">Gentle Nature Sound</span>
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <span className="text-sm opacity-50">Gentle Nature Sound</span>
+                        </div>
+
                       </div>
                       <div>
                         <div className="font-bold">Rockot</div>
@@ -269,10 +265,10 @@ function Sources() {
                 {/* row 11 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1762451833/bounce_g9mc1l.jpg"
                             alt="bouncing girl" />
                         </div>
@@ -294,10 +290,10 @@ function Sources() {
                 {/* row 12 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1762451841/message-in-a-bottle_hl2qry.jpg"
                             alt="message in a bottle" />
                         </div>
@@ -319,10 +315,10 @@ function Sources() {
                 {/* row 13 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1762451803/walk_vgiwqa.jpg"
                             alt="feet climbing" />
                         </div>
@@ -344,10 +340,10 @@ function Sources() {
                 {/* row 13 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1762451187/samples/breakfast.jpg"
                             alt="plate with breakfast" />
                         </div>
@@ -366,13 +362,13 @@ function Sources() {
                       rel="noopener noreferrer">Link</a>
                   </th>
                 </tr>
-{/* row 14 */}
+                {/* row 14 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1764011835/tiger-1098607_1280_xkmlhj.jpg"
                             alt="tiger" />
                         </div>
@@ -391,13 +387,13 @@ function Sources() {
                       rel="noopener noreferrer">Link</a>
                   </th>
                 </tr>
-{/* row 15 */}
+                {/* row 15 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1764011834/sky-5534319_1280_hue1r6.jpg"
                             alt="sky" />
                         </div>
@@ -416,13 +412,13 @@ function Sources() {
                       rel="noopener noreferrer">Link</a>
                   </th>
                 </tr>
-{/* row 15 */}
+                {/* row 15 */}
                 <tr>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center w-20 gap-3">
                       <div className="preview">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
+                        <div className="overflow-hidden rounded-lg h-12 w-12">
+                          <img className="object-cover w-full h-full"
                             src="https://res.cloudinary.com/dsj7xmt8k/image/upload/v1762451183/samples/two-ladies.jpg"
                             alt="two woman laughing" />
                         </div>
