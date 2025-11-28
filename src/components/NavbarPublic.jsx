@@ -17,9 +17,9 @@ function NavbarPublic() {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
               <li><NavLink to="/">Home</NavLink></li>
-              {/* <li><NavLink to="/">About</NavLink></li> */}
+              <li><NavLink to="/#about">About</NavLink></li>
               <li><NavLink to="/contact">Contact</NavLink></li>
-              <li><NavLink to="/sources">Resources</NavLink></li>
+              <li><NavLink to="/resources">Resources</NavLink></li>
 
             </ul>
           </div>
@@ -27,9 +27,9 @@ function NavbarPublic() {
           {/* menu for larger screens */}
           <div className="hidden md:flex flex-1 justify-start gap-2 ">
             <NavLink to="/">Home</NavLink>
-            {/* <NavLink>About</NavLink> */}
+            <NavLink to="/#about">About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/sources">Resources</NavLink>
+            <NavLink to="/resources">Resources</NavLink>
 
 
           </div>

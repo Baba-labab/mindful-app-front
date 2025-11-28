@@ -1,12 +1,15 @@
-import React from 'react'
+import { useContext } from 'react'
 import NavbarPublic from '../components/NavbarPublic'
+import NavbarUser from "../components/NavbarUser"
 import Footer from '../components/Footer'
+import { AuthContext } from '../context/auth.context'
 
 function Sources() {
+  const { isLoggedIn } = useContext(AuthContext)
   return (
     <div>
 
-      <NavbarPublic />
+   {isLoggedIn ? <NavbarUser /> : <NavbarPublic />}
       <div className="px-4 min-h-screen bg-[url(/images/to-go-biking.jpg)] bg-cover bg-no-repeat bg-center">
         <h1 className="text-black text-center text-4xl p-10">List of Resources</h1>
         <div className="flex justify-center">

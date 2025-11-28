@@ -19,8 +19,7 @@ function Home() {
               <li><NavLink to="/">Home</NavLink></li>
               <li><a href="#about" title="about">About</a></li>
               <li><NavLink to="/contact">Contact</NavLink></li>
-              <li><NavLink to="/sources">Resources</NavLink></li>
-              <li><NavLink to="/signup">Sign up</NavLink></li>
+              <li><NavLink to="/resources">Resources</NavLink></li>
             </ul>
           </div>
 
@@ -29,7 +28,7 @@ function Home() {
             <NavLink to="/">Home</NavLink>
             <a href="#about" title="about">About</a>
             <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/sources">Resources</NavLink>
+            <NavLink to="/resources">Resources</NavLink>
           </div>
 
         </div>
@@ -39,7 +38,6 @@ function Home() {
           <span className="btn btn-ghost text-xl text-blue-950 italic hidden sm:flex lg:flex">my mindful moments</span>
          </NavLink>
           
-          <img className=""></img>
         </div>
         <div className="navbar-end ">
           <NavLink to="/signup">
@@ -126,7 +124,7 @@ function Home() {
         <h2 className="text-center text-3xl font-bold p-4">Free resources and transparency</h2>
         <p className="px-4 text-center">This app contains a curated selection of freely available exercises from around the internet. You can find all sources I used here:</p>
         <NavLink to="/sources">
-          <button className="btn btn-primary mt-5 mb-10">Sources</button>
+          <button className="btn btn-primary mt-5 mb-10">Resources</button>
         </NavLink>
       </div>
 

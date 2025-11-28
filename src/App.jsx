@@ -29,18 +29,15 @@ function App() {
     <div>
       <Routes>
         {/* public routes */}
-        {/* <Route element={<NavbarPublic />}> */}
-          <Route path="/" element={<Home />}></Route>
-       {/* </Route> */}
+        <Route path="/" element={<Home />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/resources" element={<Sources />}></Route>
 
         {/* anon routes */}
         <Route element={<IsAnon />}>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/sources" element={<Sources />}></Route>
         </Route>
-
 
         {/* private routes */}
         <Route element={<IsPrivate />}>

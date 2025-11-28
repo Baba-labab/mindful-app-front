@@ -27,13 +27,18 @@ function Contact() {
 
             <p className="mb-4 md:w-100 italic">
               an educator and former forest kindergarten practitioner who has learned how essential small moments of pause can be. After years in social and educational settings, I saw how quickly we lose ourselves in busy days and how much a brief mindful break can restore clarity and calm.</p>
-              <p className="mb-4 md:w-100 italic">I created the Mindful Moments App to offer simple, grounding pauses that truly fit into everyday life, even when time feels tight.</p>
+            <p className="mb-4 md:w-100 italic">I created the Mindful Moments App to offer simple, grounding pauses that truly fit into everyday life, even when time feels tight.</p>
 
             <div className="flex flex-row gap-4 mb-10">
-              <a href={"www.linkedin.com/in/barbara-goldbeck-7ba383367"}
+              <a href="https://www.linkedin.com/in/barbara-goldbeck-7ba383367"
+
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-lg">LinkedIn</a>
 
               <a href={"https://github.com/Baba-labab"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-lg">GitHub</a>
             </div>
 
